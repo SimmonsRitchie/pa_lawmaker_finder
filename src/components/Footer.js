@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Footer = () => (
+const Footer = () => (
     <div className="container__footer">
       <p class="text__footnote"><b>Source: </b>Insert source here.
       </p>
