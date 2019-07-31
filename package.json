@@ -33,6 +33,7 @@
     "raf": "3.3.2",
     "react": "^16.8.0",
     "react-addons-shallow-compare": "15.6.0",
+    "react-autocomplete": "^1.8.1",
     "react-dates": "12.7.0",
     "react-dom": "16.0.1",
     "react-modal": "2.2.2",
