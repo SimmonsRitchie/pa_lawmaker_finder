@@ -1,23 +1,34 @@
 {
-  "Aberdeen": [
+  "towns": [
     {
-      "District": "District 13",
-      "Wards": "No",
-      "Senate": "JOSEPH M. KYRILLOS, JR.",
-      "Senate_party": "R",
-      "Senate_main_office": "10 Hwy. 35, 2nd Floor, Red Bank, NJ 07701",
-      "Senate_phone": "732-671-3206",
-      "Senate_email": "SenKyrillos@njleg.org",
-      "Assembly_1": "AMY H. HANDLIN",
-      "Assembly_party_1": "R",
-      "Assembly_office_1": "225 Route 35, Suite 202, Red Bank, NJ 07701",
-      "Assembly_phone_1": "732-383-7820",
-      "Assembly_email_1": "AsmHandlin@njleg.org",
-      "Assembly_2": "DECLAN O'SCANLON",
-      "Assembly_party_2": "R",
-      "Assembly_office_2": "32 Monmouth St., 3rd Floor, Red Bank, NJ 07701",
-      "Assembly_phone_2": "732-933-1591",
-      "Assembly_email_2": "AsmOScanlon@njleg.org"
+      "name": "Abbottstown Borough",
+      "house_district": 193,
+      "senate_district": 33
+    },
+    {
+      "name": "Arendtsville Borough",
+      "house_district": 193,
+      "senate_district": 33
+    },
+    {
+      "name": "Bendersville Borough",
+      "house_district": 193,
+      "senate_district": 33
+    },
+    {
+      "name": "Zonga Borough",
+      "house_district": 193,
+      "senate_district": 33
+    },
+    {
+      "name": "Chugga Borough",
+      "house_district": 193,
+      "senate_district": 33
+    },
+    {
+      "name": "Dakgpejle Borough",
+      "house_district": 193,
+      "senate_district": 33
     }
   ]
 }
