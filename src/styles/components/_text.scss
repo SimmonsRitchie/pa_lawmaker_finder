@@ -1,0 +1,48 @@
+.btn {
+  color: white;
+  background-color: black;
+  font-size: 20px;
+  height: 100px;
+  width: 300px;
+}
+
+.text__title {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  margin-bottom: $s-size;
+  color: $text-main;
+  font-weight: 300; // aka 'demi bold'
+  font-size: $font-size-large;
+}
+
+.text__subtitle {
+  padding: 0;
+  margin: 0 0 $s-size 0;
+  font-style: italic;
+  font-family: $georgia;
+  color: $text-light;
+  font-size: $font-size-small;
+  text-align: center;
+}
+
+.text__download {
+  font-size: 10px;
+  // font-family: $georgia;
+  color: $text-main;
+  margin: 0;
+  padding-bottom: 7.5px;
+
+  @media (min-width: 770px) {
+    padding-bottom: none;
+
+  }
+}
+
+.text__footnote {
+  margin: 0.3rem;
+  font-family: $georgia;
+  color: $text-light;
+  font-style: italic;
+  font-size: $font-size-x-small;
+}
