@@ -1,0 +1,13 @@
+{
+  "lawmakers": [
+    {
+      "name": "John Smith",
+      "position": "Rep",
+      "party": "R",
+      "district": 33,
+      "phone": "717-212-212",
+      "email": "lawmaker@pa.legislature.us"
+    }
+
+  ]
+}

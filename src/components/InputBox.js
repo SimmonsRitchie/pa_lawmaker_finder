@@ -5,14 +5,23 @@ class InputBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      town: "",
       value: ""
     };
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const townNames = this.props.towns.towns.map(town => town.name)
+    if (townNames.includes(this.state.value)) {
+      this.props.setDistricts(this.state.value)
+    } else {
+      console.log("not a Pa town - invalid submission")
+    }
+  }
+
   render() {
     return (
-      <div>
+      <div className="container__input">
         <div className="autocomplete__wrapper">
           <ReactAutocomplete
             inputProps={{ style: { width: "100%", height: "30px" } }}
@@ -40,6 +49,7 @@ class InputBox extends React.Component {
             onSelect={value => this.setState({ value })}
           />
         </div>
+        <button onClick={this.handleSubmit}>Submit</button>
       </div>
     );
   }

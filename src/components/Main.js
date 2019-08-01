@@ -2,16 +2,38 @@ import React from 'react';
 import Header from './Header'
 import Footer from './Footer'
 import InputBox from './InputBox'
-import towns from '../../public/static/test.json';
+import DisplayBox from './DisplayBox'
+import towns from '../../public/static/towns.json';
 
 
-export const Main = () => (
-    <div className="container__main">
+class Main extends React.Component {
+  state = {
+    houseDistict: undefined,
+    senateDistrict: undefined
+  };
+
+  setDistricts = (submittedTown) => {
+    // Set house and senate districts based on town
+    console.log(submittedTown)
+    const matchingTowns = towns.towns.filter(town => town.name === submittedTown)
+    const matchingTown = matchingTowns[0]
+    console.log(matchingTown)
+    const houseD = matchingTown.house_district
+    console.log(houseD)
+    // this.setState({houseDistict: matchingTown[]})
+    // console.log(matchingTown)
+  }
+
+  render() {
+    return (
+      <div className="container__main">
       <Header />
-      <InputBox towns={towns}/>
+      <InputBox towns={towns} setDistricts={this.setDistricts}/>
+      <DisplayBox />
       <Footer />
     </div>
-)
-
+    )
+  }
+}
 
 export default Main

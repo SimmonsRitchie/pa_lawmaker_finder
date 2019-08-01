@@ -4,6 +4,14 @@
   margin: 0 auto;
 }
 
+.container__input {
+  display: flex;
+  flex-direction: vertical;
+  align-content: space-between;
+  justify-content: center;
+  align-items: center	;
+}
+
 .container__header {
   // Insert
 }
