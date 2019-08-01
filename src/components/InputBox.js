@@ -11,7 +11,7 @@ class InputBox extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const townNames = this.props.towns.towns.map(town => town.name)
+    const townNames = this.props.towns.map(town => town.municipality)
     if (townNames.includes(this.state.value)) {
       this.props.setDistricts(this.state.value)
     } else {
@@ -26,22 +26,23 @@ class InputBox extends React.Component {
           <ReactAutocomplete
             inputProps={{ style: { width: "100%", height: "30px" } }}
             wrapperStyle={{ maxWidth: 200, height: "30px", margin: "10px" }}
-            items={this.props.towns.towns}
+            items={this.props.towns}
             shouldItemRender={(item, value) =>
-              item.name.toLowerCase().indexOf(value.toLowerCase()) > -1
+              item.municipality.toLowerCase().indexOf(value.toLowerCase()) > -1
             }
             renderMenu={(items, value) => (
+              // Limit number of items displayed
               <div className="autocomplete__menu">
-                {value === "" ? "" : items.slice(0, 3)}
+                {value === "" ? "" : items.slice(0, 7)}
               </div>
             )}
-            getItemValue={item => item.name}
+            getItemValue={item => item.municipality}
             renderItem={(item, highlighted) => (
               <div
-                key={item.name}
+                key={item.municipality}
                 style={{ backgroundColor: highlighted ? "#eee" : "transparent" }}
               >
-                {item.name}
+                {item.municipality}
               </div>
             )}
             value={this.state.value}

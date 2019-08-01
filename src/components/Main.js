@@ -4,6 +4,11 @@ import Footer from './Footer'
 import InputBox from './InputBox'
 import DisplayBox from './DisplayBox'
 import towns from '../../public/static/towns.json';
+import geolocate from '../utils/geolocate'
+
+console.log(towns)
+
+geolocate()
 
 
 class Main extends React.Component {
@@ -15,7 +20,7 @@ class Main extends React.Component {
   setDistricts = (submittedTown) => {
     // Set house and senate districts based on town
     console.log(submittedTown)
-    const matchingTowns = towns.towns.filter(town => town.name === submittedTown)
+    const matchingTowns = towns.filter(town => town.municipality === submittedTown)
     const matchingTown = matchingTowns[0]
     console.log(matchingTown)
     const houseDistrict = matchingTown.house_district
