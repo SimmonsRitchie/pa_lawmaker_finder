@@ -8,8 +8,8 @@ import towns from '../../public/static/towns.json';
 
 class Main extends React.Component {
   state = {
-    houseDistict: undefined,
-    senateDistrict: undefined
+    houseDistrict: "",
+    senateDistrict: ""
   };
 
   setDistricts = (submittedTown) => {
@@ -18,10 +18,10 @@ class Main extends React.Component {
     const matchingTowns = towns.towns.filter(town => town.name === submittedTown)
     const matchingTown = matchingTowns[0]
     console.log(matchingTown)
-    const houseD = matchingTown.house_district
-    console.log(houseD)
-    // this.setState({houseDistict: matchingTown[]})
-    // console.log(matchingTown)
+    const houseDistrict = matchingTown.house_district
+    const senateDistrict = matchingTown.senate_district
+    this.setState({houseDistrict})
+    this.setState({senateDistrict})
   }
 
   render() {
@@ -29,7 +29,7 @@ class Main extends React.Component {
       <div className="container__main">
       <Header />
       <InputBox towns={towns} setDistricts={this.setDistricts}/>
-      <DisplayBox />
+      <DisplayBox houseDistrict={this.state.houseDistrict} />
       <Footer />
     </div>
     )

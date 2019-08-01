@@ -1,8 +1,8 @@
 import React from 'react';
 
-const DisplayBox = () => (
+const DisplayBox = (props) => (
     <div className="container__display-box">
-      <p>Insert Sen/Rep info here</p>
+      <p>{props.houseDistrict}</p>
     </div>
 )
 
