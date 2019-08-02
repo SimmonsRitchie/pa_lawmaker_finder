@@ -2,13 +2,13 @@ import React from 'react';
 import Header from './Header'
 import Footer from './Footer'
 import InputBox from './InputBox'
+import InputBox2 from './InputBox2'
 import DisplayBox from './DisplayBox'
 import towns from '../../public/static/towns.json';
+import senDistricts from '../../public/static/pa_sen_2017.json'
 import geolocate from '../utils/geolocate'
 
-console.log(towns)
 
-geolocate()
 
 
 class Main extends React.Component {
@@ -33,7 +33,7 @@ class Main extends React.Component {
     return (
       <div className="container__main">
       <Header />
-      <InputBox towns={towns} setDistricts={this.setDistricts}/>
+      <InputBox2 />
       <DisplayBox houseDistrict={this.state.houseDistrict} />
       <Footer />
     </div>
