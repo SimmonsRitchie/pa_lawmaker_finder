@@ -2,13 +2,13 @@ import { checkPointWithinGeography } from './findWithin'
 import senDistricts from '../../public/static/pa_sen_2017.json'
 import houseDistricts from '../../public/static/pa_house_2017.json'
 import {convertTopoJson} from '../utils/layerGroups'
-
+import { errMsg } from '../constants/error_msg'
 const senDistLayerG = convertTopoJson(senDistricts)
 const houseDistLayerG = convertTopoJson(houseDistricts)
 
 
 // GEOLOCATION
-const geolocate = () => {
+const geolocate = (setDistricts, setMessage) => {
   console.log("Loading...")
   // Check if geolocation functionality is available to client
   // GEOLOCATION AVAILABLE:
@@ -22,20 +22,19 @@ const geolocate = () => {
           userLat: userLat,
           userLong: userLong
         };
-        console.log(posObj);
-        console.log(senDistLayerG)
-        const senD = checkPointWithinGeography(userLat, userLong, senDistLayerG)
-        const houseD = checkPointWithinGeography(userLat, userLong, houseDistLayerG)
-        console.log("Senate district:", senD)
-        console.log("House district:", houseD)
-        if (senD == undefined || houseD == undefined) {
-          console.log("Sorry, we couldn't find your district")
+        const houseDistrict = checkPointWithinGeography(userLat, userLong, houseDistLayerG)
+        const senDistrict = checkPointWithinGeography(userLat, userLong, senDistLayerG)
+        setDistricts( houseDistrict, senDistrict)
+        setMessage(`You're in House District ${houseDistrict} and Senate District ${senDistrict}.`)
+        if (senDistrict == undefined || houseDistrict == undefined) {
+          setMessage(errMsg.LOCATION_NOT_IN_DISTRICTS)
         }
         return posObj;
       },
       // ERROR
       err => {
         console.log(err);
+        setMessage(errMsg.LOCATION_NOT_FOUND)
       },
       // OPTIONS
       {
@@ -46,7 +45,7 @@ const geolocate = () => {
     );
     // GEOLOCATION UNAVAILABLE:
   } else {
-    console.log("Geolocation is unavailable on your browser.");
+    setMessage(errMsg.GEOLOCATION_UNAVAILABLE);
   }
 };
 

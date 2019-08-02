@@ -1,7 +1,7 @@
 import React from "react";
 import geolocate, {Geolocate} from './../utils/geolocate'
 
-class InputBox2 extends React.Component {
+class InputAddress extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -9,15 +9,11 @@ class InputBox2 extends React.Component {
     };
   }
 
-  handleGeolocate () {
-    geolocate()
-  }
-
   render() {
     return (
-      <div className="container__input">
-        <button onClick={this.handleGeolocate}>Use current location</button> 
-        <button>Enter address</button> 
+      <div>
+        <input></input>
+        <button>Submit</button>
       </div>
     );
   }

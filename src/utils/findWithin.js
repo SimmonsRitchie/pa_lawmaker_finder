@@ -8,7 +8,7 @@ Module for geographic functions that are useful for mapping
 
 // Third party imports
 import * as turf from '@turf/turf'
-const L = require('leaflet') // trying this
+const L = require('leaflet')
 
 
 // -------------------- POINT WITHIN POLYGON  ---------------------------
