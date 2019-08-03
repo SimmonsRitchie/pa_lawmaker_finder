@@ -1,12 +1,12 @@
 import React from 'react';
-import {PulseLoader} from 'halogenium'
+import {ClipLoader} from 'halogenium'
 
-const Loader = (props) => (
+const Loader = ({display = true}) => (
     <div className="loader__container">
-      {props.display &&
-        <PulseLoader color="#26A65B" size="30px" margin="4px"/>
+      {display &&
+        <ClipLoader color="#26A65B" size="30px" margin="4px"/>
       }
     </div>
-)
+  )
 
 export default Loader

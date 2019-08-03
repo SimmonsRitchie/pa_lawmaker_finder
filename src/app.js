@@ -6,7 +6,7 @@ import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import Main from './components/Main'
 import configureStore from './store/configureStore';
-import LoadingPage from './components/LoadingPage'
+import Loader from './components/Loader'
 
 // CALLING STORE
 const store = configureStore();
@@ -33,7 +33,7 @@ const renderApp = () => {
 };
 
 // LOADING PAGE
-ReactDOM.render(<LoadingPage />, document.getElementById('app'))
+ReactDOM.render(<Loader />, document.getElementById('app'))
 
 // LOAD
 renderApp()

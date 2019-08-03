@@ -1,10 +1,10 @@
 .lawmaker__container {
-  margin: $s-size;
-  padding: $s-size;
+  padding: 0 $s-size $s-size $s-size;
   font-size: $font-size-small;
+  width: 100%;
 }
 
-.lawmaker__container-table {
+.lawmaker__table-container {
   background-color: beige;
 }
 

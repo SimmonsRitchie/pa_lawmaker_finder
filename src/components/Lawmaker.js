@@ -9,6 +9,8 @@ const Lawmaker = ({
   harrisburg_office_phone,
   district_office_phone,
   district_office_address,
+  city,
+  zip,
   email
 }) => (
     <div className="lawmaker__container">
@@ -35,7 +37,7 @@ const Lawmaker = ({
             </tr>
             <tr>
               <td>Office address:</td>
-              <td>{district_office_address}</td>
+              <td>{district_office_address}, {city} {zip}</td>
             </tr>
           </tbody>
         </table>

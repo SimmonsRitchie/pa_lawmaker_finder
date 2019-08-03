@@ -35,10 +35,7 @@ class Main extends React.Component {
     loading: false
   };
 
-  handleGeolocate = () => {
-    geolocate(this.setDistricts, this.setMessage, this.setLoader)
-  }
-
+  // Updates state with user's house and senate districts
   setDistricts = (houseDistrict, senateDistrict) => {
     this.setState({
       houseDistrict,
@@ -46,12 +43,19 @@ class Main extends React.Component {
     })
   }
 
+  // Updates action/error message displayed to user
   setMessage = (message) => {
     this.setState({message})
   }
 
+  // Updates loading status
   setLoader = (bool) => {
     this.setState({loading: bool})
+  }
+
+  // Determines user's districts based on their device's lat/long
+  handleGeolocate = () => {
+    geolocate(this.setDistricts, this.setMessage, this.setLoader)
   }
 
   render() {
@@ -61,10 +65,11 @@ class Main extends React.Component {
       <ButtonBox handleGeolocate={this.handleGeolocate}/>
       <MessageBox message={this.state.message}/>
       <Loader display={this.state.loading}/>
-      <LawmakerBox 
+      {(this.state.houseDistrict || this.state.senateDistrict) && 
+        <LawmakerBox 
         houseDistrict={this.state.houseDistrict} 
         senateDistrict={this.state.senateDistrict} 
-      />
+      />}
       <Footer/>
     </div>
     )
