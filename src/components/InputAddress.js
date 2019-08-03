@@ -1,12 +1,12 @@
 import React from "react";
-import geolocate, {Geolocate} from './../utils/geolocate'
+
+
 
 class InputAddress extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ""
-    };
+  state = {
+    address: '',
+    city: '',
+    zip: '',
   }
 
   render() {
@@ -20,3 +20,10 @@ class InputAddress extends React.Component {
 }
 
 export default InputAddress;
+
+// constructor(props) {
+//   super(props);
+//   this.state = {
+//     value: ""
+//   };
+// }
