@@ -9,7 +9,7 @@ const houseDistLayerG = convertTopoJson(houseDistricts)
 
 // GEOLOCATION
 const geolocate = (setDistricts, setMessage, setLoader) => {
-  console.log("Loading...")
+  setMessage("Searching for your location...")
   setLoader(true)
   // Check if geolocation functionality is available to client
   // GEOLOCATION AVAILABLE:

@@ -19,4 +19,4 @@ class InputAddress extends React.Component {
   }
 }
 
-export default InputBox2;
+export default InputAddress;
