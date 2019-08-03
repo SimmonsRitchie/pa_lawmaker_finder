@@ -5,6 +5,7 @@ import ButtonBox from './ButtonBox'
 import LawmakerBox from './LawmakerBox'
 import MessageBox from './MessageBox'
 import geolocate from '../utils/geolocate'
+import geocode from "./../utils/geocode"
 import InputAddress from './InputAddress'
 import getCoords from '../utils/geocode'
 import Loader from './Loader'
@@ -39,8 +40,8 @@ class Main extends React.Component {
 
   // Updates state to enable address forms to display
   setInputAddress = (bool) => {
-    this.setState({ enableInputAddress: bool})
-    console.log("input address", bool)
+    this.setState({ enableInputAddress: bool, houseDistrict: "", senateDistrict: ""})
+    this.setMessage("Enter your address:")
   }
 
   // Updates state with user's house and senate districts
@@ -63,8 +64,14 @@ class Main extends React.Component {
 
   // Determines user's districts based on their device's lat/long
   handleGeolocate = () => {
-    this.setInputAddress(false)
+    this.setState({ enableInputAddress: false, houseDistrict: "", senateDistrict: ""})
     geolocate(this.setDistricts, this.setMessage, this.setLoader)
+  }
+
+  // Determines user's districts based on input address
+  handleGeocode = (address) => {
+    this.setState({ enableInputAddress: false, houseDistrict: "", senateDistrict: ""})
+    geocode(address, this.setDistricts, this.setMessage, this.setLoader)
   }
 
   render() {
@@ -77,7 +84,8 @@ class Main extends React.Component {
       />
       <MessageBox message={this.state.message}/>
       <Loader display={this.state.loading}/>
-      {this.state.enableInputAddress && <InputAddress />}
+      {this.state.enableInputAddress && 
+        <InputAddress handleGeocode={this.handleGeocode}/>}
       {(this.state.houseDistrict || this.state.senateDistrict) && 
         <LawmakerBox 
         houseDistrict={this.state.houseDistrict} 

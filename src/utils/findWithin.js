@@ -3,21 +3,33 @@
 -----------------------------------------------------------------
 
 Module for geographic functions that are useful for mapping
-
 */
 
 // Third party imports
 import * as turf from '@turf/turf'
 const L = require('leaflet')
+import {convertTopoJson} from '../utils/layerGroups'
+import senDistricts from '../../public/static/pa_sen_2017.json'
+import houseDistricts from '../../public/static/pa_house_2017.json'
 
+// Get leaflet layer groups from GEOJSON
+const houseDistLayerG = convertTopoJson(houseDistricts)
+const senDistLayerG = convertTopoJson(senDistricts)
 
 // -------------------- POINT WITHIN POLYGON  ---------------------------
 
 // Using turf to checking whether point is within given geographic area
 
-export const checkPointWithinGeography = (inputLat, inputLng, layerGroup) => {
-  /* Takes lat, long and a Leaflet layer of map boundaries. Checks if lat/lng are in any of those
-  shapes. If so, returns desired property on feature.properties */
+export const checkPointWithinGeography = ({inputLat, inputLng, bounds}={}) => {
+  /* Takes lat, long and a flag ('house','senate') that determines whether you want to search 
+  whether those coords are within Pa. house district or Pa. senate districts. */
+
+  let layerGroup = null
+  if (bounds == 'house') {
+    layerGroup = houseDistLayerG
+  } else if (bounds == 'senate') {
+    layerGroup = senDistLayerG
+  }
 
   // Convert input into Turf point
   const turfPoint = turf.point([inputLng, inputLat]); // NOTE: turf takes [lng, lat] format. leaflet takes [lat, lng].
