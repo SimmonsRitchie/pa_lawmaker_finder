@@ -1,7 +1,7 @@
 import React from "react";
 import geolocate from '../utils/geolocate'
 
-class InputBox extends React.Component {
+class ButtonBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,4 +23,4 @@ class InputBox extends React.Component {
   }
 }
 
-export default InputBox;
+export default ButtonBox;

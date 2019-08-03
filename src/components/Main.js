@@ -1,11 +1,9 @@
 import React from 'react';
 import Header from './Header'
 import Footer from './Footer'
-import InputBox from './InputBox'
-import DisplayBox from './DisplayBox'
+import ButtonBox from './ButtonBox'
+import LawmakerBox from './LawmakerBox'
 import MessageBox from './MessageBox'
-import towns from '../../public/static/towns.json';
-import senDistricts from '../../public/static/pa_sen_2017.json'
 import geolocate from '../utils/geolocate'
 import getCoords from '../utils/geocode'
 
@@ -54,9 +52,9 @@ class Main extends React.Component {
     return (
       <div className="container__main">
       <Header />
-      <InputBox handleGeolocate={this.handleGeolocate}/>
+      <ButtonBox handleGeolocate={this.handleGeolocate}/>
       <MessageBox message={this.state.message}/>
-      <DisplayBox 
+      <LawmakerBox 
         houseDistrict={this.state.houseDistrict} 
         senateDistrict={this.state.senateDistrict} 
       />

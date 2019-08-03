@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MessageBox = (props) => (
-    <div>
+    <div className="messageBox__container">
       <p>{props.message}</p>
     </div>
 )

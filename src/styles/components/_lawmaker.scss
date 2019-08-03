@@ -1,0 +1,26 @@
+.lawmaker__container {
+  margin: $s-size;
+  padding: $s-size;
+  font-size: $font-size-small;
+}
+
+.lawmaker__container-table {
+  background-color: beige;
+}
+
+.lawmnaker__name {
+  font-weight: 900;
+}
+
+.lawmaker__table {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  tr {
+    padding: 0;
+    margin: 0;
+  }
+  tr td:nth-child(2) {
+    padding-left: $s-size;
+  }
+}

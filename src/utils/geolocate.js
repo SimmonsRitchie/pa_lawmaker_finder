@@ -2,7 +2,7 @@ import { checkPointWithinGeography } from './findWithin'
 import senDistricts from '../../public/static/pa_sen_2017.json'
 import houseDistricts from '../../public/static/pa_house_2017.json'
 import {convertTopoJson} from '../utils/layerGroups'
-import { errMsg } from '../constants/error_msg'
+import { msg } from '../constants/displayMsg'
 const senDistLayerG = convertTopoJson(senDistricts)
 const houseDistLayerG = convertTopoJson(houseDistricts)
 
@@ -25,16 +25,16 @@ const geolocate = (setDistricts, setMessage) => {
         const houseDistrict = checkPointWithinGeography(userLat, userLong, houseDistLayerG)
         const senDistrict = checkPointWithinGeography(userLat, userLong, senDistLayerG)
         setDistricts( houseDistrict, senDistrict)
-        setMessage(`You're in House District ${houseDistrict} and Senate District ${senDistrict}.`)
+        setMessage(`Based on your current location, your lawmakers are:`)
         if (senDistrict == undefined || houseDistrict == undefined) {
-          setMessage(errMsg.LOCATION_NOT_IN_DISTRICTS)
+          setMessage(msg.LOCATION_NOT_IN_DISTRICTS)
         }
         return posObj;
       },
       // ERROR
       err => {
         console.log(err);
-        setMessage(errMsg.LOCATION_NOT_FOUND)
+        setMessage(msg.LOCATION_NOT_FOUND)
       },
       // OPTIONS
       {
@@ -45,7 +45,7 @@ const geolocate = (setDistricts, setMessage) => {
     );
     // GEOLOCATION UNAVAILABLE:
   } else {
-    setMessage(errMsg.GEOLOCATION_UNAVAILABLE);
+    setMessage(msg.GEOLOCATION_UNAVAILABLE);
   }
 };
 

@@ -5,7 +5,7 @@ const Footer = () => (
       <p className="text__footnote"><b>Source: </b>Pa. Legislative Data Processing Center.
       </p>
       <p className="text__footnote">
-        App by Daniel Simmons-Ritchie, Spotlight Pa.
+        Created by Daniel Simmons-Ritchie, Spotlight PA
       </p>
     </div>
 )
