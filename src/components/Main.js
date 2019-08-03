@@ -6,6 +6,7 @@ import LawmakerBox from './LawmakerBox'
 import MessageBox from './MessageBox'
 import geolocate from '../utils/geolocate'
 import getCoords from '../utils/geocode'
+import Loader from './Loader'
 
 const address1 = {
   street:"212 Kelker St", 
@@ -30,11 +31,12 @@ class Main extends React.Component {
   state = {
     houseDistrict: "",
     senateDistrict: "",
-    message: ""
+    message: "",
+    loading: false
   };
 
   handleGeolocate = () => {
-    geolocate(this.setDistricts, this.setMessage)
+    geolocate(this.setDistricts, this.setMessage, this.setLoader)
   }
 
   setDistricts = (houseDistrict, senateDistrict) => {
@@ -48,12 +50,17 @@ class Main extends React.Component {
     this.setState({message})
   }
 
+  setLoader = (bool) => {
+    this.setState({loading: bool})
+  }
+
   render() {
     return (
       <div className="container__main">
       <Header />
       <ButtonBox handleGeolocate={this.handleGeolocate}/>
       <MessageBox message={this.state.message}/>
+      <Loader display={this.state.loading}/>
       <LawmakerBox 
         houseDistrict={this.state.houseDistrict} 
         senateDistrict={this.state.senateDistrict} 

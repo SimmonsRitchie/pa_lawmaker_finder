@@ -8,14 +8,16 @@ const houseDistLayerG = convertTopoJson(houseDistricts)
 
 
 // GEOLOCATION
-const geolocate = (setDistricts, setMessage) => {
+const geolocate = (setDistricts, setMessage, setLoader) => {
   console.log("Loading...")
+  setLoader(true)
   // Check if geolocation functionality is available to client
   // GEOLOCATION AVAILABLE:
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
       // SUCCESS
       position => {
+        setLoader(false)
         const userLat = position.coords.latitude;
         const userLong = position.coords.longitude;
         const posObj = {
@@ -33,6 +35,7 @@ const geolocate = (setDistricts, setMessage) => {
       },
       // ERROR
       err => {
+        setLoader(false)
         console.log(err);
         setMessage(msg.LOCATION_NOT_FOUND)
       },
@@ -45,6 +48,7 @@ const geolocate = (setDistricts, setMessage) => {
     );
     // GEOLOCATION UNAVAILABLE:
   } else {
+    setLoader(false)
     setMessage(msg.GEOLOCATION_UNAVAILABLE);
   }
 };

@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; // We use this component to connect redux to react
-import Main from './components/Main'
-import configureStore from './store/configureStore';
-import LoadingPage from './components/LoadingPage'
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
-
+import Main from './components/Main'
+import configureStore from './store/configureStore';
+import LoadingPage from './components/LoadingPage'
 
 // CALLING STORE
 const store = configureStore();
