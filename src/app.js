@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'; // We use this component to connect redux to react
-import 'normalize.css/normalize.css';
+// import 'normalize.css/normalize.css'; // commenting out because using bulma
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';

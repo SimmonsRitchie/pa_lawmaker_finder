@@ -5,7 +5,7 @@ const Loader = ({display = true}) => (
     <div>
       {display &&
         <div className="loader__container">
-        <ClipLoader color="#26A65B" size="30px" margin="4px"/>
+        <ClipLoader color="#26A65B" size="100px" margin="4px"/>
         </div>
       }
     </div>

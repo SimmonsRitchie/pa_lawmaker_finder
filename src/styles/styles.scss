@@ -18,11 +18,15 @@ MODIFIER - changes the style of the block
 */
 
 @import './base/settings';
-@import './base/base';
+// @import './base/base';
 @import './components/container';
 @import './components/text';
 @import './components/visibility';
+@import './components/header';
 @import './components/loader';
 @import './components/lawmaker';
 @import './components/lawmakerBox';
-@import './components/messageBox'
+@import './components/messageBox';
+@import './components/footer';
+@import './components/buttonBox';
+@import './components/button';

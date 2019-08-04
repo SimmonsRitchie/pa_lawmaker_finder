@@ -4,8 +4,9 @@ import { msg } from '../constants/displayMsg'
 
 // GEOLOCATION
 const geolocate = (setDistricts, setMessage, setLoader) => {
-  setLoader(true)
   setMessage(msg.SEARCHING_FOR_LAWMAKERS)
+  // setMessage(msg.SEARCHING_FOR_LAWMAKERS)
+  setLoader(true)
   // Check if geolocation functionality is available to client
   // GEOLOCATION AVAILABLE:
   if ("geolocation" in navigator) {
