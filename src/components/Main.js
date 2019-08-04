@@ -117,7 +117,10 @@ class Main extends React.Component {
         {this.state.message && <MessageBox message={this.state.message} />}
         <Loader display={this.state.loading} />
         {this.state.enableInputAddress && (
-          <InputAddress handleGeocode={this.handleGeocode} />
+          <InputAddress 
+            handleGeocode={this.handleGeocode} 
+            handleBack={this.handleBack}
+          />
         )}
         {(this.state.houseDistrict || this.state.senateDistrict) && (
           <LawmakerBox

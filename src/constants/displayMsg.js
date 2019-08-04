@@ -1,5 +1,6 @@
 export const msg = {
   "SEARCHING_FOR_LAWMAKERS": "Searching for your lawmakers...",
+  "SEARCHING_FOR_LAWMAKERS_GEOLOCATION": "Searching for your lawmakers based on your current location...",
   "SUCCESS_GEOLOCATION": "Based on your current location, your lawmakers are:",
   "SUCCESS_GEOCODE": "Based on your address, your lawmakers are:",
   "LOCATION_NOT_IN_DISTRICTS": "Sorry, we couldn't find your districts. Try searching by address.",
