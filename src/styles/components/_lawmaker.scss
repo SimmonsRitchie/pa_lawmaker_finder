@@ -1,26 +1,22 @@
 .lawmaker__container {
   padding: 0 $s-size $s-size $s-size;
-  font-size: $font-size-small;
   width: 100%;
 }
 
 .lawmaker__table-container {
-  background-color: beige;
+  border: 1px black solid;
+  padding: $xs-size;
+  border-radius: 5px;
 }
 
-.lawmnaker__name {
-  font-weight: 900;
+.lawmaker__name {
+  // using important to override bulma style
+  margin-bottom: $xs-size !important;
 }
 
-.lawmaker__table {
-  border-spacing: 0;
-  border-collapse: collapse;
+// .lawmaker__table {
 
-  tr {
-    padding: 0;
-    margin: 0;
-  }
-  tr td:nth-child(2) {
-    padding-left: $s-size;
-  }
-}
+//   tr td:nth-child(2) {
+//     padding-left: $s-size;
+//   }
+// }

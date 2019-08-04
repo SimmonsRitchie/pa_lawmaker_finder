@@ -1,56 +1,62 @@
-import React from 'react';
+import React from "react";
+import { Table, Heading, Tile } from "react-bulma-components";
 
-const Lawmaker = ({
-  district,
-  position,
-  first_name,
-  last_name,
-  party,
-  harrisburg_office_phone,
-  district_office_phone,
-  district_office_address,
-  city,
-  zip,
-  email
-}) => (
-    <div className="lawmaker__container">
-      <div className="lawmaker__district">District {district}</div>
-      <div className="lawmaker__table-container">
-        <div className="lawmnaker__name">{position} {first_name} {last_name} ({party})</div>
-        <table className="lawmaker__table">
-          <tbody>
-            <tr>
-              <td>Harrisburg Ph:</td>
-              <td>{harrisburg_office_phone}</td>
-            </tr>
-            <tr>
-              <td>District Ph:</td>
-              <td>{district_office_phone}</td>
-            </tr>
-  {email && <tr>
-              <td>Email:</td>
-              <td>{email}</td>
-            </tr>}
-            <tr>
-              <td>Office Ph:</td>
-              <td>{harrisburg_office_phone}</td>
-            </tr>
-            <tr>
-              <td>Office address:</td>
-              <td>{district_office_address}, {city} {zip}</td>
-            </tr>
-          </tbody>
-        </table>
+class Lawmaker extends React.Component {
+  render() {
+    const {
+      district,
+      position,
+      first_name,
+      last_name,
+      party,
+      harrisburg_office_phone,
+      district_office_phone,
+      district_office_address,
+      city,
+      zip,
+      email
+    } = this.props;
+
+    const chamberDistrict = position === "Sen." ? "SD" : "HD";
+
+    return (
+      <div className="lawmaker__container">
+        <div className="lawmaker__table-container">
+          <Heading subtitle size={6} className={"lawmaker__name"} weight={'semibold'}>
+            {position} {first_name} {last_name} ({party}, {chamberDistrict} {district})
+          </Heading>
+          <Table size={"fullwidth"} style={{fontSize: "12px"}}>
+            <tbody>
+              <tr>
+                <td>Harrisburg Ph:</td>
+                <td>{harrisburg_office_phone}</td>
+              </tr>
+              <tr>
+                <td>District Ph:</td>
+                <td>{district_office_phone}</td>
+              </tr>
+              {email && (
+                <tr>
+                  <td>Email:</td>
+                  <td>{email}</td>
+                </tr>
+              )}
+              <tr>
+                <td>Office Ph:</td>
+                <td>{harrisburg_office_phone}</td>
+              </tr>
+              <tr>
+                <td>Office address:</td>
+                <td>
+                  {district_office_address}, {city} {zip}
+                </td>
+              </tr>
+            </tbody>
+          </Table>
+        </div>
       </div>
-    </div>
-  )
+    );
+  }
+}
 
-export default Lawmaker
-
-// <p>Phone: {phone}</p>
-// <p>Email: {email}</p>
-
-// <span>Harrisburg Ph:{harrisburg_office_phone}</span>
-// <span>District Ph:{harrisburg_office_phone}</span>
-// <span>Email:{harrisburg_office_phone}</span>
-// <span>District Address:{harrisburg_office_phone}</span>
+export default Lawmaker;
