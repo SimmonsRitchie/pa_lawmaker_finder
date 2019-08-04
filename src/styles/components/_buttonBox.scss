@@ -1,7 +1,13 @@
 .buttonBox__container {
-  padding: $s-size;
+  padding-bottom: $s-size;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.buttonBox__subtitle {
+  // Using important to override Bulma default margin
+  margin-bottom: $s-size !important;
+  text-align: center;
 }

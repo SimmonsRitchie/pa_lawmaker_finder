@@ -1,8 +1,9 @@
 import React from 'react';
+import { Button } from 'react-bulma-components'
 
 const SuggestBox = (props) => (
     <div className="suggestBox__container">
-      Do these not look like your lawmakers? Try entering your address.
+      Not your lawmakers? Try searching again with your address.
     </div>
   )
 

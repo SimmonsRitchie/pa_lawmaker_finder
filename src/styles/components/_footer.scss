@@ -1,3 +1,11 @@
 .footer__container {
-  // Insert
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__text {
+  text-align: center;
+  // using important to override bulma margin
+  margin-bottom: $xs-size !important;
 }

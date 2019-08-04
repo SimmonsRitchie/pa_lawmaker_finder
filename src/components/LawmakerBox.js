@@ -20,7 +20,7 @@ class LawmakerBox extends React.Component {
       <div className="lawmakerBox__container">
         {sen && <Lawmaker {...sen} />}
         {rep && <Lawmaker {...rep} />}
-        <SuggestBox />
+        {this.props.searchMethod === "geolocate" && <SuggestBox/>}
         <Button onClick={this.props.handleBack}>&lt; Back</Button>
       </div>
     )

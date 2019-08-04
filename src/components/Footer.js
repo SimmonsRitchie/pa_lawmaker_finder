@@ -1,12 +1,13 @@
 import React from 'react';
-
+import {Heading} from 'react-bulma-components'
 const Footer = () => (
     <div className="container__footer">
-      <p className="text__footnote"><b>Source: </b>Pa. Legislative Data Processing Center.
-      </p>
-      <p className="text__footnote">
+      <Heading className={"footer__text"} subtitle size={6}>
+      <b>Source: </b>Pa. Legislative Data Processing Center.
+      </Heading>
+      <Heading className={"footer__text"} subtitle size={6}>
         Created by Daniel Simmons-Ritchie, Spotlight PA
-      </p>
+      </Heading>
     </div>
 )
 

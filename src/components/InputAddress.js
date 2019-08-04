@@ -83,9 +83,11 @@ class InputAddress extends React.Component {
               />
             </Control>
           </Field>
-          <Button className={"button__primary"} onClick={this.props.handleBack}>&lt; Back</Button>
-          <Button className={"button__primary"} onClick={this.handleSubmit}>Submit</Button>
-          </Container>
+          <div className="form__buttonBox">
+            <Button className={"button__primary"} onClick={this.props.handleBack}>&lt; Back</Button>
+            <Button className={"button__primary"} onClick={this.handleSubmit}>Submit</Button>
+          </div>
+        </Container>
       </div>
     );
   }
