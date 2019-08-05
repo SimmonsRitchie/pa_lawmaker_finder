@@ -84,7 +84,7 @@ class Main extends React.Component {
     this.clearState();
     this.setButtonBox(false);
     this.setState({searchMethod: "geolocate"})
-    geolocate(this.setDistricts, this.setMessage, this.setLoader);
+    geolocate(this.setDistricts, this.setMessage, this.setLoader, this.setButtonBox);
   };
 
   // Determines user's districts based on input address
@@ -92,7 +92,7 @@ class Main extends React.Component {
     this.clearState();
     this.setButtonBox(false);
     this.setState({searchMethod: "geocode"})
-    geocode(address, this.setDistricts, this.setMessage, this.setLoader);
+    geocode(address, this.setDistricts, this.setMessage, this.setLoader, this.setButtonBox);
   };
 
   render() {

@@ -3,7 +3,7 @@ import { msg } from '../constants/displayMsg'
 
 
 // GEOLOCATION
-const geolocate = (setDistricts, setMessage, setLoader) => {
+const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
   setMessage(msg.SEARCHING_FOR_LAWMAKERS_GEOLOCATION)
   // setMessage(msg.SEARCHING_FOR_LAWMAKERS)
   setLoader(true)
@@ -18,10 +18,12 @@ const geolocate = (setDistricts, setMessage, setLoader) => {
         const userLng = position.coords.longitude;
         const houseDistrict = checkPointWithinGeography({inputLat: userLat, inputLng:userLng, bounds:'house'})
         const senDistrict = checkPointWithinGeography({inputLat: userLat, inputLng:userLng, bounds:'senate'})
-        setDistricts( houseDistrict, senDistrict)
-        setMessage(msg.SUCCESS_GEOLOCATION)
         if (senDistrict == undefined || houseDistrict == undefined) {
           setMessage(msg.LOCATION_NOT_IN_DISTRICTS)
+          setButtonBox(true)
+        } else {
+          setDistricts( houseDistrict, senDistrict)
+          setMessage(msg.SUCCESS_GEOLOCATION)
         }
         return
       },
@@ -29,7 +31,8 @@ const geolocate = (setDistricts, setMessage, setLoader) => {
       err => {
         setLoader(false)
         console.log(err);
-        setMessage(msg.LOCATION_NOT_FOUND_TRY_AGAIN)
+        setMessage(msg.LOCATION_NOT_FOUND_TRY_ADDRESS)
+        setButtonBox(true)
         return
       },
       // OPTIONS
@@ -43,6 +46,7 @@ const geolocate = (setDistricts, setMessage, setLoader) => {
   } else {
     setLoader(false)
     setMessage(msg.GEOLOCATION_UNAVAILABLE);
+    setButtonBox(true)
     return
   }
 };

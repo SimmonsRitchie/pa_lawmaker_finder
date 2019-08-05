@@ -11,7 +11,7 @@ import Button1 from './Button1'
 import SuggestBox from './SuggestBox'
 
 function validate(address, city, county, postalcode) {
-  // true means invalid, so our conditions got reversed
+  // true means invalid
   return {
     address: address.length === 0,
     city: city.length === 0,
@@ -31,13 +31,19 @@ class InputAddress extends React.Component {
 
   onChange = e => {
     const value = e.target.value;
+    const name = e.target.name;
+    // Validation for zip: only accept number
+    const pat = /\D/;
+    if (name === 'postalcode' && pat.test(value)) {
+      this.setState({errorMsg: "Please only use numbers for zipcode field."})
+      return
+    }
     this.setState({
-      [e.target.name]: value
+      [name]: value
     });
   };
 
   handleSubmit = e => {
-    console.log("Handle submit pressed")
     e.preventDefault();
     if (!this.canBeSubmitted()) {
       this.setState({errorMsg: "Please complete all fields."})
@@ -92,7 +98,7 @@ class InputAddress extends React.Component {
           <FormField
             label="Zipcode"
             placeholder="Your zipcode"
-            inputType="number"
+            inputType="text"
             inputName="postalcode"
             inputValue={postalcode}
             onChange={this.onChange}
@@ -135,3 +141,5 @@ const FormField = ({
     </Control>
   </Field>
 );
+
+// <Label size="small">{label}:</Label>
