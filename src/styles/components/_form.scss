@@ -1,5 +1,13 @@
 .form__container {
   padding-bottom: $s-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form__container-inner {
+  max-width: 400px;
 }
 
 .form__buttonBox {

@@ -34,10 +34,12 @@ class InputAddress extends React.Component {
     const { address, city, county, postalcode } = this.state;
     return (
       <div className="form__container">
-          <FormField label="Address" placeholder="Your address" inputType="text" inputName="address" inputValue={address} onChange={this.onChange}/>
-          <FormField label="City" placeholder="Your city" inputType="text" inputName="city" inputValue={city} onChange={this.onChange}/>
-          <FormField label="County" placeholder="Your county" inputType="text" inputName="county" inputValue={county} onChange={this.onChange}/>
-          <FormField label="Zipcode" placeholder="Your zipcode" inputType="text" inputName="postalcode" inputValue={postalcode} onChange={this.onChange}/>
+          <div class="form__container-inner">
+          	<FormField label="Address" placeholder="Your address" inputType="text" inputName="address" inputValue={address} onChange={this.onChange}/>
+          	<FormField label="City" placeholder="Your city" inputType="text" inputName="city" inputValue={city} onChange={this.onChange}/>
+          	<FormField label="County" placeholder="Your county" inputType="text" inputName="county" inputValue={county} onChange={this.onChange}/>
+          	<FormField label="Zipcode" placeholder="Your zipcode" inputType="text" inputName="postalcode" inputValue={postalcode} onChange={this.onChange}/>
+          </div>
           <div className="form__buttonBox">
             <Button className={"button__primary"} onClick={this.props.handleBack}>&lt; Back</Button>
             <Button className={"button__primary"} onClick={this.handleSubmit}>Submit</Button>
@@ -51,8 +53,8 @@ export default InputAddress;
 
 
 const FormField = ({label, placeholder, inputType, inputName, inputValue, onChange}) => (
-  <Field>
-  <Label>{label}:</Label>
+  <Field style={{width: "100%"}}>
+  <Label size="small">{label}:</Label>
   <Control>
     <Input
       onChange={onChange}
@@ -61,7 +63,6 @@ const FormField = ({label, placeholder, inputType, inputName, inputValue, onChan
       placeholder={placeholder}
       value={inputValue}
       size="small"
-      color="success"
     />
   </Control>
 </Field>
