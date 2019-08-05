@@ -7,13 +7,26 @@ import {
   Columns
 } from "react-bulma-components";
 const { Input, Field, Control, Label } = Form;
+import Button1 from './Button1'
+import SuggestBox from './SuggestBox'
+
+function validate(address, city, county, postalcode) {
+  // true means invalid, so our conditions got reversed
+  return {
+    address: address.length === 0,
+    city: city.length === 0,
+    county: county.length === 0,
+    postalcode: postalcode.length === 0,
+  };
+}
 
 class InputAddress extends React.Component {
   state = {
     address: "",
     city: "",
     county: "",
-    postalcode: ""
+    postalcode: "",
+    errorMsg: ""
   };
 
   onChange = e => {
@@ -24,26 +37,73 @@ class InputAddress extends React.Component {
   };
 
   handleSubmit = e => {
-    e.preventDefault()
+    console.log("Handle submit pressed")
+    e.preventDefault();
+    if (!this.canBeSubmitted()) {
+      this.setState({errorMsg: "Please complete all fields."})
+      return;
+    }
+
     // We only expect addresses in Pennsylvania so we provide these address params
-    const defaultVals = {state: "PA", country: "USA"}
-    this.props.handleGeocode({...this.state, ...defaultVals})
+    const defaultVals = { state: "PA", country: "USA" };
+    this.props.handleGeocode({ ...this.state, ...defaultVals });
+  };
+
+  canBeSubmitted = () => {
+    const errors = validate(this.state.address, this.state.city, this.state.county, this.state.postalcode);
+    // checks if any fields in error obj are set to 'true'
+    const isDisabled = Object.keys(errors).some(x => errors[x]);
+    return !isDisabled;
   }
 
   render() {
     const { address, city, county, postalcode } = this.state;
+    const errors = validate(this.state.address, this.state.city, this.state.county, this.state.postalcode);
     return (
       <div className="form__container">
-          <div class="form__container-inner">
-          	<FormField label="Address" placeholder="Your address" inputType="text" inputName="address" inputValue={address} onChange={this.onChange}/>
-          	<FormField label="City" placeholder="Your city" inputType="text" inputName="city" inputValue={city} onChange={this.onChange}/>
-          	<FormField label="County" placeholder="Your county" inputType="text" inputName="county" inputValue={county} onChange={this.onChange}/>
-          	<FormField label="Zipcode" placeholder="Your zipcode" inputType="text" inputName="postalcode" inputValue={postalcode} onChange={this.onChange}/>
-          </div>
-          <div className="form__buttonBox">
-            <Button className={"button__primary"} onClick={this.props.handleBack}>&lt; Back</Button>
-            <Button className={"button__primary"} onClick={this.handleSubmit}>Submit</Button>
-          </div>
+        <div className="form__container-inner">
+          <FormField
+            label="Address"
+            placeholder="Your address"
+            inputType="text"
+            inputName="address"
+            inputValue={address}
+            onChange={this.onChange}
+            errors={errors}
+          />
+          <FormField
+            label="City"
+            placeholder="Your city"
+            inputType="text"
+            inputName="city"
+            inputValue={city}
+            onChange={this.onChange}
+            errors={errors}
+          />
+          <FormField
+            label="County"
+            placeholder="Your county"
+            inputType="text"
+            inputName="county"
+            inputValue={county}
+            onChange={this.onChange}
+            errors={errors}
+          />
+          <FormField
+            label="Zipcode"
+            placeholder="Your zipcode"
+            inputType="number"
+            inputName="postalcode"
+            inputValue={postalcode}
+            onChange={this.onChange}
+            errors={errors}
+          />
+        </div>
+        {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} />}
+        <div className="form__buttonBox">
+          <Button1 onClickEvt={this.props.handleBack} text="< Back" />
+          <Button1 onClickEvt={this.handleSubmit} text="Submit" />
+        </div>
       </div>
     );
   }
@@ -51,19 +111,27 @@ class InputAddress extends React.Component {
 
 export default InputAddress;
 
-
-const FormField = ({label, placeholder, inputType, inputName, inputValue, onChange}) => (
-  <Field style={{width: "100%"}}>
-  <Label size="small">{label}:</Label>
-  <Control>
-    <Input
-      onChange={onChange}
-      name={inputName}
-      type={inputType}
-      placeholder={placeholder}
-      value={inputValue}
-      size="small"
-    />
-  </Control>
-</Field>
-)
+const FormField = ({
+  label,
+  placeholder,
+  inputType,
+  inputName,
+  inputValue,
+  onChange,
+  errors
+}) => (
+  <Field style={{ width: "100%" }}>
+    <Label size="small">{label}:</Label>
+    <Control>
+      <Input
+        onChange={onChange}
+        name={inputName}
+        type={inputType}
+        placeholder={placeholder}
+        value={inputValue}
+        size="small"
+        color={!errors[inputName] ? 'success' : null}
+      />
+    </Control>
+  </Field>
+);

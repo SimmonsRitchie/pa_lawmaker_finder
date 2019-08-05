@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bulma-components'
 
-const SuggestBox = (props) => (
+const SuggestBox = ({message}) => (
     <div className="suggestBox__container">
-      Not your lawmakers? Try searching again with your address.
+      {message}
     </div>
   )
 
