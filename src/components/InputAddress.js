@@ -13,7 +13,7 @@ class InputAddress extends React.Component {
     address: "",
     city: "",
     county: "",
-    zip: ""
+    postalcode: ""
   };
 
   onChange = e => {
@@ -31,63 +31,17 @@ class InputAddress extends React.Component {
   }
 
   render() {
-    const { address, city, county, zip } = this.state;
+    const { address, city, county, postalcode } = this.state;
     return (
-      <div>
-        <Container>
-          <Field>
-            <Label>Address:</Label>
-            <Control>
-              <Input
-                onChange={this.onChange}
-                name="address"
-                type="text"
-                placeholder="Your address"
-                value={address}
-              />
-            </Control>
-          </Field>
-          <Field>
-            <Label>City:</Label>
-            <Control>
-              <Input
-                onChange={this.onChange}
-                name="city"
-                type="text"
-                placeholder="Your city"
-                value={city}
-              />
-            </Control>
-          </Field>
-          <Field>
-            <Label>County:</Label>
-            <Control>
-              <Input
-                onChange={this.onChange}
-                name="county"
-                type="text"
-                placeholder="Your county"
-                value={county}
-              />
-            </Control>
-          </Field>
-          <Field>
-            <Label>Zipcode:</Label>
-            <Control>
-              <Input
-                onChange={this.onChange}
-                name="zip"
-                type="number"
-                placeholder="Your zipcode"
-                value={zip}
-              />
-            </Control>
-          </Field>
+      <div className="form__container">
+          <FormField label="Address" placeholder="Your address" inputType="text" inputName="address" inputValue={address} onChange={this.onChange}/>
+          <FormField label="City" placeholder="Your city" inputType="text" inputName="city" inputValue={city} onChange={this.onChange}/>
+          <FormField label="County" placeholder="Your county" inputType="text" inputName="county" inputValue={county} onChange={this.onChange}/>
+          <FormField label="Zipcode" placeholder="Your zipcode" inputType="text" inputName="postalcode" inputValue={postalcode} onChange={this.onChange}/>
           <div className="form__buttonBox">
             <Button className={"button__primary"} onClick={this.props.handleBack}>&lt; Back</Button>
             <Button className={"button__primary"} onClick={this.handleSubmit}>Submit</Button>
           </div>
-        </Container>
       </div>
     );
   }
@@ -95,9 +49,20 @@ class InputAddress extends React.Component {
 
 export default InputAddress;
 
-// constructor(props) {
-//   super(props);
-//   this.state = {
-//     value: ""
-//   };
-// }
+
+const FormField = ({label, placeholder, inputType, inputName, inputValue, onChange}) => (
+  <Field>
+  <Label>{label}:</Label>
+  <Control>
+    <Input
+      onChange={onChange}
+      name={inputName}
+      type={inputType}
+      placeholder={placeholder}
+      value={inputValue}
+      size="small"
+      color="success"
+    />
+  </Control>
+</Field>
+)
