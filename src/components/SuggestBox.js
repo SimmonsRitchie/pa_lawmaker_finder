@@ -1,11 +1,12 @@
 import React from 'react';
-import { Notification } from 'react-bulma-components'
 
-const SuggestBox = ({message}) => (
-    <Notification color="light" outlined={true} size="small" className="suggestBox__container">
+const SuggestBox = ({message, error=null}) => {
+  const errorClass = error ? 'suggestBox__error' : null;
+  return (
+    <div className={`suggestBox__container ${errorClass}`}>
       {message}
-    </Notification>
-  )
+    </div>
+  )}
 
 export default SuggestBox
 

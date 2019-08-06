@@ -9,6 +9,14 @@
   border-radius: 5px;
 }
 
+.lawmaker__table-container--R {
+  border-color: red;
+}
+
+.lawmaker__table-container--D {
+  border-color: blue;
+}
+
 .lawmaker__name {
   // using important to override bulma style
   margin-bottom: $xs-size !important;

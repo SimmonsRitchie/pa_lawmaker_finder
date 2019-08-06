@@ -1,3 +1,7 @@
 .suggestBox__container {
   padding: 0 $s-size $s-size $s-size;
 }
+
+.suggestBox__error {
+  color: red;
+}

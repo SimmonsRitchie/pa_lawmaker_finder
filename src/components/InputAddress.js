@@ -94,7 +94,7 @@ class InputAddress extends React.Component {
             errors={errors}
           />
         </div>
-        {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} />}
+        {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
         <div className="form__buttonBox">
           <Button1 onClickEvt={this.props.handleBack} text="< Back" />
           <Button1 onClickEvt={this.handleSubmit} text="Submit" />

@@ -19,10 +19,13 @@ class Lawmaker extends React.Component {
     } = this.props;
 
     const chamberDistrict = position === "Sen." ? "SD" : "HD";
+    const partyClass = party === "R" ? "lawmaker__table-container--R" : "lawmaker__table-container--D"
+    console.log(party)
+    console.log(partyClass)
 
     return (
       <div className="lawmaker__container">
-        <div className="lawmaker__table-container">
+        <div className={`lawmaker__table-container ${partyClass}`}>
           <Heading subtitle size={6} className={"lawmaker__name"} weight={'semibold'}>
             {position} {first_name} {last_name} ({party}, {chamberDistrict} {district})
           </Heading>
