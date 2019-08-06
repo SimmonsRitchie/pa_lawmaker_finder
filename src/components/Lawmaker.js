@@ -20,7 +20,7 @@ class Lawmaker extends React.Component {
 
     const chamberDistrict = position === "Sen." ? "SD" : "HD";
     const partyClass = party === "R" ? "lawmaker__table-container--R" : "lawmaker__table-container--D"
-
+    // TODO: Need to add city and zip details to district office information
     return (
       <div className="lawmaker__container">
         <div className={`lawmaker__table-container`}>
