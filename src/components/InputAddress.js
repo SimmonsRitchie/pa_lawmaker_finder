@@ -15,7 +15,6 @@ function validate(address, city, county, postalcode) {
   return {
     address: address.length === 0,
     city: city.length === 0,
-    county: county.length === 0,
     postalcode: postalcode.length === 0,
   };
 }
@@ -24,7 +23,6 @@ class InputAddress extends React.Component {
   state = {
     address: "",
     city: "",
-    county: "",
     postalcode: "",
     errorMsg: ""
   };
@@ -83,15 +81,6 @@ class InputAddress extends React.Component {
             inputType="text"
             inputName="city"
             inputValue={city}
-            onChange={this.onChange}
-            errors={errors}
-          />
-          <FormField
-            label="County"
-            placeholder="Your county"
-            inputType="text"
-            inputName="county"
-            inputValue={county}
             onChange={this.onChange}
             errors={errors}
           />

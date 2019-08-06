@@ -1,10 +1,14 @@
 import React from 'react';
-import { Button } from 'react-bulma-components'
+import { Notification } from 'react-bulma-components'
 
 const SuggestBox = ({message}) => (
-    <div className="suggestBox__container">
+    <Notification color="light" outlined={true} size="small" className="suggestBox__container">
       {message}
-    </div>
+    </Notification>
   )
 
 export default SuggestBox
+
+// <div className="suggestBox__container">
+// {message}
+// </div>

@@ -24,7 +24,6 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
         setLoader(false)
         // Geocoder returns an array of the best matches, we take the first.
         const bestMatch = response[0]
-          console.log(bestMatch)
           const inputLat = bestMatch.lat
           const inputLng = bestMatch.lon
           const houseDistrict = checkPointWithinGeography({inputLat, inputLng, bounds:"house"})
@@ -34,7 +33,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
             setButtonBox(true)
           } else {
             setDistricts( houseDistrict, senDistrict)
-            setMessage(msg.SUCCESS_GEOLOCATION)
+            setMessage(msg.SUCCESS_GEOCODE)
           }
           return
       })
