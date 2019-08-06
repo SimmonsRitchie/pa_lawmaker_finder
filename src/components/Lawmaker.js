@@ -29,11 +29,11 @@ class Lawmaker extends React.Component {
           </Heading>
           <Table size={"fullwidth"} style={{fontSize: "12px"}}>
             <tbody>
-              {harrisburg_office_phone && <TableRow name="Harrisburg Ph" value={harrisburg_office_phone} />}
+              {harrisburg_office_phone && <TableRow name="Captiol Ph" value={harrisburg_office_phone} />}
               {district_office_phone && <TableRow name="District Ph" value={district_office_phone} />}
               {email && <TableRow name="Email" value={email} />}
               {harrisburg_office_fax && <TableRow name="Harrisburg Office Fax" value={harrisburg_office_fax} />}
-              {district_office_address && <TableRow name="District Office Address" value={district_office_address} />}
+              {district_office_address && <TableRow name="District Office Address" value={`${district_office_address} ${city} ${zip}`} />}
             </tbody>
           </Table>
         </div>
