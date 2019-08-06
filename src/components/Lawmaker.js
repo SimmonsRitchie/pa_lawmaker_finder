@@ -20,13 +20,11 @@ class Lawmaker extends React.Component {
 
     const chamberDistrict = position === "Sen." ? "SD" : "HD";
     const partyClass = party === "R" ? "lawmaker__table-container--R" : "lawmaker__table-container--D"
-    console.log(party)
-    console.log(partyClass)
 
     return (
       <div className="lawmaker__container">
-        <div className={`lawmaker__table-container ${partyClass}`}>
-          <Heading subtitle size={6} className={"lawmaker__name"} weight={'semibold'}>
+        <div className={`lawmaker__table-container`}>
+          <Heading subtitle size={6} className={`lawmaker__name ${partyClass}`} weight={'semibold'}>
             {position} {first_name} {last_name} ({party}, {chamberDistrict} {district})
           </Heading>
           <Table size={"fullwidth"} style={{fontSize: "12px"}}>
@@ -53,32 +51,3 @@ const TableRow = ({name, value}) => (
   </tr>
   )
 
-
-  // <Table size={"fullwidth"} style={{fontSize: "12px"}}>
-  //           <tbody>
-  //             <tr>
-  //               <td>Harrisburg Ph:</td>
-  //               <td>{harrisburg_office_phone}</td>
-  //             </tr>
-  //             <tr>
-  //               <td>District Ph:</td>
-  //               <td>{district_office_phone}</td>
-  //             </tr>
-  //             {email && (
-  //               <tr>
-  //                 <td>Email:</td>
-  //                 <td>{email}</td>
-  //               </tr>
-  //             )}
-  //             <tr>
-  //               <td>Office Fax:</td>
-  //               <td>{harrisburg_office_fax}</td>
-  //             </tr>
-  //             <tr>
-  //               <td>District Office Address:</td>
-  //               <td>
-  //                 {district_office_address}, {city} {zip}
-  //               </td>
-  //             </tr>
-  //           </tbody>
-  //         </Table>

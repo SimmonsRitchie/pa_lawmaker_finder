@@ -10,11 +10,11 @@
 }
 
 .lawmaker__table-container--R {
-  border-color: red;
+  color: $republican !important;
 }
 
 .lawmaker__table-container--D {
-  border-color: blue;
+  color: $democrat !important;
 }
 
 .lawmaker__name {
