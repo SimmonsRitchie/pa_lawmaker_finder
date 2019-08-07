@@ -12,13 +12,6 @@ const port = process.env.PORT || 3000;
 // CREATE INSTANCE
 const app = express(); // creating a new instance of express
 
-// SET CORS
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://www-uat.pennlive.com");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
-
 // SET PATH
 const publicPath = path.join(__dirname, '..', 'public')
 app.use(express.static(publicPath)); // telling express where the public folder is
