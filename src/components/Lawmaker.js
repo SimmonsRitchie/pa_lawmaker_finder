@@ -33,7 +33,7 @@ class Lawmaker extends React.Component {
               {district_office_phone && <TableRow name="District Ph" value={district_office_phone} />}
               {email && <TableRow name="Email" value={email} />}
               {harrisburg_office_fax && <TableRow name="Harrisburg Office Fax" value={harrisburg_office_fax} />}
-              {district_office_address && <TableRow name="District Office Address" value={`${district_office_address} ${city} ${zip}`} />}
+              {district_office_address && <TableRow name="District Office Address" value={`${district_office_address}, ${city}, PA ${zip}`} />}
             </tbody>
           </Table>
         </div>
