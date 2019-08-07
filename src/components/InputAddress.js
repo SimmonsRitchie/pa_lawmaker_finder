@@ -27,6 +27,12 @@ class InputAddress extends React.Component {
     errorMsg: ""
   };
 
+  componentDidUpdate() {
+    // Because our app changes height based on displayed content, we 
+    // update the iframe height after DOM elements have been updated.
+    pymChild.sendHeight();
+  }
+
   onChange = e => {
     const value = e.target.value;
     const name = e.target.name;
