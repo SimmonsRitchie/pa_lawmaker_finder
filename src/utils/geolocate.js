@@ -38,7 +38,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
       // OPTIONS
       {
         enableHighAccuracy: false,
-        timeout: 8000,
+        timeout: 5000,
         maximumAge: 0
       }
     );
