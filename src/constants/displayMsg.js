@@ -6,5 +6,5 @@ export const msg = {
   "LOCATION_OUTSIDE_DISTRICTS": "Sorry, we couldn’t find a district associated with your location. Try again:",
   "LOCATION_NOT_FOUND": "Sorry, we couldn't find your location. Try again:",
   "LOCATION_NOT_FOUND_TRY_ADDRESS": "Sorry, we couldn't find your location. Try searching by address:",
-  "GEOLOCATION_UNAVAILABLE": "Sorry geolocation isn't enabled on your browser. Try searching by address:"
+  "GEOLOCATION_UNAVAILABLE": "Sorry we can't find your location due to your browser settings. Try searching by address:"
 }
