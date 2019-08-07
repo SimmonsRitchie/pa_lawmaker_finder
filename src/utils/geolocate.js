@@ -9,7 +9,8 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
   setLoader(true)
   // Check if geolocation functionality is available to client
   // GEOLOCATION AVAILABLE:
-  if ("geolocation" in navigator) {
+  console.log(window.isSecureContext)
+  if (window.isSecureContext && "geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
       // SUCCESS
       position => {
