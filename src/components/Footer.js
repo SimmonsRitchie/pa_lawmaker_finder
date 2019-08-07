@@ -3,7 +3,7 @@ import {Heading, Content } from 'react-bulma-components'
 const Footer = () => (
     <div className="container__footer">
         <Content size="small">
-          <p className={"footer__text"}>
+          <p className={"footer__text footer__margin-bottom"}>
           <b>Source: </b>Pa. Legislative Data Processing Center.
           </p>
           <p className={"footer__text"}>

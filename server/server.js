@@ -12,12 +12,19 @@ const port = process.env.PORT || 3000;
 // CREATE INSTANCE
 const app = express(); // creating a new instance of express
 
+// SET CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://www-uat.pennlive.com");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 // SET PATH
 const publicPath = path.join(__dirname, '..', 'public')
 app.use(express.static(publicPath)); // telling express where the public folder is
 
 // FALLBACK ROUTING
-// This ensures that when users refresh (eg. on /create page) that
+// This ensures that when users refresh that
 // the page refreshes properly. It sends the user index.html,
 // which ensures routing works properly.
 app.get('*', (req, res) => {

@@ -7,5 +7,8 @@
 .footer__text {
   text-align: center;
   // using important to override bulma margin
+}
+
+.footer__margin-bottom {
   margin-bottom: $xs-size !important;
 }

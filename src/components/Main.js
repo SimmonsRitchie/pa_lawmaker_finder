@@ -7,7 +7,6 @@ import MessageBox from "./MessageBox";
 import geolocate from "../utils/geolocate";
 import geocode from "./../utils/geocode";
 import InputAddress from "./InputAddress";
-import getCoords from "../utils/geocode";
 import Loader from "./Loader";
 
 
@@ -53,12 +52,12 @@ class Main extends React.Component {
     this.setState({ message });
   };
 
-  // Updates loading status
+  // Determines whether loading image is visible
   setLoader = bool => {
     this.setState({ loading: bool });
   };
 
-  // resets to page load default except for enableButtonBox
+  // resets all state to defaults except for enableButtonBox
   clearState = () => {
     this.setState({
       houseDistrict: "",
@@ -70,7 +69,7 @@ class Main extends React.Component {
     })
   };
 
- // Handles button press: Returns to page default load display
+ // Handles button press: Returns app to apppearance on initial load
   handleBack = (e) => {
     e.preventDefault();
     this.clearState();
