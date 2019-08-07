@@ -22,19 +22,23 @@ class Main extends React.Component {
     searchMethod: null,
   };
 
+  componentDidUpdate() {
+    pymChild.sendHeight();
+  }
+
   // Updates state to enable address forms to display
   setInputAddress = bool => {
     this.clearState();
     this.setState({ enableInputAddress: bool });
     this.setMessage("Enter your address in Pa.:");
-    setTimeout(() => { pymChild.sendHeight() }, 1000);
+    // setTimeout(() => { pymChild.sendHeight() }, 500);
     // pymChild.sendHeight();
   };
 
   // Updates state to enable buttonBox to display
   setButtonBox = bool => {
     this.setState({ enableButtonBox: bool });
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // Updates state with user's house and senate districts
@@ -43,19 +47,19 @@ class Main extends React.Component {
       houseDistrict,
       senateDistrict
     });
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // Updates action/error message displayed to user
   setMessage = message => {
     this.setState({ message });
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // Updates loading status
   setLoader = bool => {
     this.setState({ loading: bool });
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // resets to page load default except for enableButtonBox
@@ -68,7 +72,7 @@ class Main extends React.Component {
       enableInputAddress: false,
       searchMethod: null,
     })
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
  // Handles button press: Returns to page default load display
@@ -76,7 +80,7 @@ class Main extends React.Component {
     e.preventDefault();
     this.clearState();
     this.setButtonBox(true);
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // Handles button press: Makes input form appear to enter address
@@ -84,7 +88,7 @@ class Main extends React.Component {
     e.preventDefault();
     this.setButtonBox(false);
     this.setInputAddress(true);
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // Determines user's districts based on their device's lat/long
@@ -94,7 +98,7 @@ class Main extends React.Component {
     this.setButtonBox(false);
     this.setState({searchMethod: "geolocate"})
     geolocate(this.setDistricts, this.setMessage, this.setLoader, this.setButtonBox);
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   // Determines user's districts based on input address
@@ -103,7 +107,7 @@ class Main extends React.Component {
     this.setButtonBox(false);
     this.setState({searchMethod: "geocode"})
     geocode(address, this.setDistricts, this.setMessage, this.setLoader, this.setButtonBox);
-    pymChild.sendHeight();
+    // pymChild.sendHeight();
   };
 
   render() {
