@@ -2,6 +2,7 @@
 that when we set the height for an input box, it sets the whole
 height and excludes margins and padding. Those can throw off our 
 style. It's something Andrew Mead does for all his projects */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,600&display=swap');
 
 * {
   box-sizing: border-box;
@@ -19,7 +20,8 @@ font-size: 62.5%;
 body {
 color: black;
 background: white;
-font-family:  'Benton Sans', Arial, sans-serif; // PennLive fonts
+font-family:  'Raleway', sans-serif; // PennLive fonts
+// font-family:  'Benton Sans', Arial, sans-serif; // PennLive fonts
 }
 
 // PennLive article text styles
