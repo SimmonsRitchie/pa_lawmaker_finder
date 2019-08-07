@@ -27,7 +27,8 @@ class Main extends React.Component {
     this.clearState();
     this.setState({ enableInputAddress: bool });
     this.setMessage("Enter your address in Pa.:");
-    pymChild.sendHeight();
+    setTimeout(() => { pymChild.sendHeight() }, 1000);
+    // pymChild.sendHeight();
   };
 
   // Updates state to enable buttonBox to display
