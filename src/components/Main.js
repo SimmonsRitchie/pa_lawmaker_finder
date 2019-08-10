@@ -14,7 +14,10 @@ class Main extends React.Component {
   state = {
     houseDistrict: "",
     senateDistrict: "",
-    message: "Find out who represents you in the Pa. Legislature:",
+    message: {
+      content: "Find out who represents you in the Pa. Legislature:",
+      italic: false
+    },
     loading: false,
     enableInputAddress: false,
     enableButtonBox: true,
@@ -104,7 +107,7 @@ class Main extends React.Component {
     return (
       <div className="container__main">
         <Header />
-        {this.state.message && <MessageBox message={this.state.message} />}
+        {this.state.message && <MessageBox message={this.state.message.content} italic={this.state.message.italic} />}
         {this.state.enableButtonBox && (
           <ButtonBox
             handleGeolocate={this.handleGeolocate}

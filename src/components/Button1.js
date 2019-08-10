@@ -4,7 +4,7 @@ import React from "react";
 
 const Button1 = ({ text, onClickEvt }) => (
   <button
-    className="button is-primary is-medium is-fullwidith button__primary"
+    className="button is-primary is-fullwidith button__primary"
     onClick={onClickEvt}
   >
     {text}

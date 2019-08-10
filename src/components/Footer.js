@@ -1,15 +1,15 @@
 import React from 'react';
 const Footer = () => (
-    <div className="container__footer">
-        <div>
-          <p className={"footer__text footer__margin-bottom"}>
+    <footer className="footer">
+        <div className="content has-text-centered is-size-7">
+          <p className={""}>
           <b>Source: </b>Pa. Legislative Data Processing Center.
           </p>
-          <p className={"footer__text"}>
+          <p className={""}>
             Created by Daniel Simmons-Ritchie, Spotlight PA
           </p>
         </div>
-    </div>
+    </footer>
 )
 
 
