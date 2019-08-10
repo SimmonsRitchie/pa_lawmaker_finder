@@ -1,10 +1,3 @@
-.btn {
-  color: white;
-  background-color: black;
-  font-size: 20px;
-  height: 100px;
-  width: 300px;
-}
 
 .text__title {
   padding: 0;
@@ -13,7 +6,7 @@
   margin-bottom: $s-size;
   color: $text-main;
   font-weight: 300; // aka 'demi bold'
-  font-size: $font-size-large;
+  // font-size: $font-size-large;
 }
 
 .text__subtitle {
@@ -21,7 +14,7 @@
   margin: 0 0 $s-size 0;
   font-style: italic;
   color: $text-light;
-  font-size: $font-size-small;
+  // font-size: $font-size-small;
   text-align: center;
 }
 
@@ -30,5 +23,5 @@
   margin: 0.3rem;
   color: $text-light;
   font-style: italic;
-  font-size: $font-size-x-small;
+  // font-size: $font-size-x-small;
 }
