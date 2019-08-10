@@ -28,11 +28,17 @@ class InputAddress extends React.Component {
   onChange = e => {
     const value = e.target.value;
     const name = e.target.name;
-    // Validation for zip: only accept number
+    // Validation for zip: only accept number, must be < 5 char
     const pat = /\D/;
-    if (name === 'postalcode' && pat.test(value)) {
-      this.setState({errorMsg: "Please only use numbers for zipcode field."})
-      return
+    if (name === 'postalcode') {
+      this.setState({errorMsg: ""})
+      if (value.length > 5) {
+        return
+      }
+      if (pat.test(value)) {
+        this.setState({errorMsg: "Please only use numbers for zipcode field."})
+        return
+      }
     }
     this.setState({
       [name]: value
