@@ -51,8 +51,11 @@ class Main extends React.Component {
   };
 
   // Updates action/error message displayed to user
-  setMessage = message => {
-    this.setState({ message });
+  setMessage = (content="",{italic=false}={}) => {
+    this.setState({ message: {
+      content,
+      italic
+    } });
   };
 
   // Determines whether loading image is visible
@@ -65,7 +68,10 @@ class Main extends React.Component {
     this.setState({
       houseDistrict: "",
       senateDistrict: "",
-      message: "Find out who represents you in the Pa. Legislature:",
+      message: {
+        content: "Find out who represents you in the Pa. Legislature:",
+        italic: false
+      },
       loading: false,
       enableInputAddress: false,
       searchMethod: null,
@@ -107,7 +113,7 @@ class Main extends React.Component {
     return (
       <div className="container__main">
         <Header />
-        {this.state.message && <MessageBox message={this.state.message.content} italic={this.state.message.italic} />}
+        {this.state.message && <MessageBox content={this.state.message.content} italic={this.state.message.italic} />}
         {this.state.enableButtonBox && (
           <ButtonBox
             handleGeolocate={this.handleGeolocate}

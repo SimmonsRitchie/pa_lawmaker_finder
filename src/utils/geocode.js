@@ -17,7 +17,7 @@ import { checkPointWithinGeography } from './findWithin'
 
 const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) => {
   setLoader(true)
-  setMessage(msg.SEARCHING_FOR_LAWMAKERS)
+  setMessage(msg.SEARCHING_FOR_LAWMAKERS, {italic: true})
   const geocoder = new Nominatim({
     secure: true, // enables ssl
   })
