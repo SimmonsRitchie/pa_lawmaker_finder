@@ -41,6 +41,7 @@ $navbar-item-active-color: $white;
 $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
+$orange: #ffbc70;
 
 // ---------------------------------------------------------------------
 // BULMA VARS - NON COLORS
@@ -55,6 +56,7 @@ $title-weight: $weight-bold;
 
 // BULMA VARS - COLORS
 $primary: $blue;
+$warning: $beige-light;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 // $body-background-color: $beige-lighter;
@@ -64,4 +66,11 @@ $fullhd-enabled: false;
 // @import "~bulma/bulma";
 @import "../../../node_modules/bulma/sass/utilities/_all.sass";
 @import "../../../node_modules/bulma/sass/base/_all.sass";
+@import "../../../node_modules/bulma/sass/elements/notification.sass";
 @import "../../../node_modules/bulma/sass/elements/button.sass";
+@import "../../../node_modules/bulma/sass/form/_all.sass";
+// @import "../../../node_modules/bulma/sass/elements/container.sass";
+@import "../../../node_modules/bulma/sass/elements/title.sass";
+// @import "../../../node_modules/bulma/sass/components/navbar.sass";
+// @import "../../../node_modules/bulma/sass/layout/hero.sass";
+// @import "../../../node_modules/bulma/sass/layout/section.sass";

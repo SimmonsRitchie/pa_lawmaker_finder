@@ -34,7 +34,7 @@ class Main extends React.Component {
   setInputAddress = bool => {
     this.clearState();
     this.setState({ enableInputAddress: bool });
-    this.setMessage("Enter your address in Pa.:");
+    this.setMessage("Enter your Pa. address:");
   };
 
   // Updates state to enable buttonBox to display

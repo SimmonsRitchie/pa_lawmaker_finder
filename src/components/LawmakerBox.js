@@ -23,7 +23,7 @@ class LawmakerBox extends React.Component {
           <SuggestBox 
           message="Not your lawmakers? Try searching again with your address."
         />}
-        <Button1 onClickEvt={this.props.handleBack} text="< Back"/>
+        <Button1 onClickEvt={this.props.handleBack} text="Back" back={true}/>
       </div>
     )
   }

@@ -94,7 +94,7 @@ class InputAddress extends React.Component {
         </div>
         {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
         <div className="form__buttonBox">
-          <Button1 onClickEvt={this.props.handleBack} text="< Back" />
+          <Button1 onClickEvt={this.props.handleBack} text="Back" back={true} />
           <Button1 onClickEvt={this.handleSubmit} text="Submit" />
         </div>
       </div>
@@ -112,17 +112,21 @@ const FormField = ({
   inputValue,
   onChange,
   errors
-}) => (
-    <div>
-    <p>{label}:</p>
-    <input
-    onChange={onChange}
-    name={inputName}
-    type={inputType}
-    placeholder={placeholder}
-    value={inputValue}
-    // color={!errors[inputName] ? 'success' : null}
-    />
+}) => {
+  const colorClass = !errors[inputName] ? 'is-success' : null
+  return (
+    <div className="field">
+    <label className="label">{label}:</label>
+    <div className="control">
+      <input
+      className={`input ${colorClass}`}
+      onChange={onChange}
+      name={inputName}
+      type={inputType}
+      placeholder={placeholder}
+      value={inputValue}
+      />
     </div>
-);
+    </div>
+)}
 
