@@ -7,6 +7,7 @@ const Button1 = ({ text, onClickEvt }) => (
     // className={"button__primary"}
     // color={"dark"}
     // outlined={true}
+    className="button is-primary button__primary"
     onClick={onClickEvt}
   >
     {text}
@@ -14,3 +15,4 @@ const Button1 = ({ text, onClickEvt }) => (
 );
 
 export default Button1
+
