@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Button, Heading } from "react-bulma-components";
 import Button1 from "./Button1"
 
 class ButtonBox extends React.Component {

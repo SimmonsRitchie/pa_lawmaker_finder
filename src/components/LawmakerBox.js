@@ -1,5 +1,4 @@
 import React from 'react';
-import {Button} from 'react-bulma-components'
 import sens from './../../public/static/sen_contacts.json'
 import reps from './../../public/static/rep_contacts.json'
 import Lawmaker from './Lawmaker'

@@ -1,12 +1,4 @@
 import React from "react";
-import {
-  Container,
-  Section,
-  Form,
-  Button,
-  Columns
-} from "react-bulma-components";
-const { Input, Field, Control, Label } = Form;
 import Button1 from './Button1'
 import SuggestBox from './SuggestBox'
 
@@ -121,20 +113,16 @@ const FormField = ({
   onChange,
   errors
 }) => (
-  <Field style={{ width: "100%" }}>
-    <Label size="small">{label}:</Label>
-    <Control>
-      <Input
-        onChange={onChange}
-        name={inputName}
-        type={inputType}
-        placeholder={placeholder}
-        value={inputValue}
-        size="small"
-        color={!errors[inputName] ? 'success' : null}
-      />
-    </Control>
-  </Field>
+    <div>
+    <p>{label}:</p>
+    <input
+    onChange={onChange}
+    name={inputName}
+    type={inputType}
+    placeholder={placeholder}
+    value={inputValue}
+    // color={!errors[inputName] ? 'success' : null}
+    />
+    </div>
 );
 
-// <Label size="small">{label}:</Label>
