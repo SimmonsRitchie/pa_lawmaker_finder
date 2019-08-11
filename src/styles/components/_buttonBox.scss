@@ -1,9 +1,7 @@
+// Override bulma styles so that buttons are aligned as column
 .buttonBox__container {
-  padding-bottom: $s-size;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  flex-direction: column !important;
 }
 
 .buttonBox__subtitle {

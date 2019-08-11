@@ -10,7 +10,7 @@ const ButtonCancel = ({ text, onClickEvt, back }) => {
   return (
   <button
     type="button"
-    className="button is-grey is-fullwidith"
+    className="button is-white is-fullwidith"
     onClick={onClickEvt}
   >
   {icon && 
