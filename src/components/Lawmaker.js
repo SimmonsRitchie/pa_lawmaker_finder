@@ -32,23 +32,29 @@ class Lawmaker extends React.Component {
 
     const chamberDistrict = position === "Sen." ? "SD" : "HD";
     const chamber = position === "Sen." ? "Senate" : "House";
-    const partyClass =
+    const partyColorMain =
       party === "R"
-        ? "lawmaker__table-container--R"
-        : "lawmaker__table-container--D";
+        ? "lawmaker__republican"
+        : "lawmaker__democrat";
+    const partyColorSub =
+      party === "R"
+        ? "lawmaker__republican-sub"
+        : "lawmaker__democrat-sub";
     return (
       <div className="box lawmaker__container">
-      <div className="is-size-7 has-text-grey-dark has-text-weight-light is-pulled-right">
-      {chamber} District {district}
-      </div>
+
         <table className="table is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
             <th colSpan="2" className={`lawmaker__th`}>
-                <div className={`is-size-6 ${partyClass}`}>
-                  {position} {first_name} {last_name} ({party})
+                <div className="lawmaker__th-container">
+                  <div className={`is-size-6 ${partyColorMain}`}>
+                    {position} {first_name} {last_name} ({party})
+                  </div>
+                  <div className={`has-text-grey-dark has-text-weight-light lawmaker__district ${partyColorSub}`}>
+                  {chamber} District {district}
+                  </div>
                 </div>
-
 
             </th>
             </tr>
@@ -90,9 +96,6 @@ class Lawmaker extends React.Component {
     );
   }
 }
-
-// <div className="lawmaker__container">
-// <div className={`lawmaker__table-container`}>
 
 export default Lawmaker;
 

@@ -1,18 +1,50 @@
 .lawmaker__container {
-  // padding: 0 $s-size $s-size $s-size;
   width: 90%;
 }
 
-// We override bulma th so it has same padding as tbody rows
+// We override bulma <th> so it has same padding as tbody rows
 .lawmaker__th {
   padding: 3px 6px 3px 6px !important;
 }
 
-.lawmaker__table-container--R {
+.lawmaker__th-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
+
+}
+
+
+.lawmaker__district {
+  font-size: $size-7 !important;
+
+  @media (min-width: 450px) {
+    font-size: $size-6 !important;
+  }
+
+}
+
+.lawmaker__republican {
   color: $republican !important;
 }
 
-.lawmaker__table-container--D {
+.lawmaker__democrat {
   color: $democrat !important;
 }
+
+
+.lawmaker__republican-sub {
+  @media (max-width: 450px) {
+    color: $republican !important;
+  }
+}
+
+.lawmaker__democrat-sub {
+  @media (max-width: 450px) {
+    color: $democrat !important;
+  }}
 

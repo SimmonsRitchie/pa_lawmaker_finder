@@ -7,7 +7,7 @@ const ButtonPrimary = ({ text, onClickEvt }) => {
 
   return (
   <button
-    className="button is-primary is-fullwidith button__primary"
+    className="button is-primary is-fullwidith"
     onClick={onClickEvt}
     type="button"
   >
