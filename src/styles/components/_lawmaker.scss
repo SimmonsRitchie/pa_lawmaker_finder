@@ -3,10 +3,9 @@
   width: 90%;
 }
 
-.lawmaker__table-container {
-  border: 1px black solid;
-  padding: $xs-size;
-  border-radius: 5px;
+// We override bulma th so it has same padding as tbody rows
+.lawmaker__th {
+  padding: 3px 6px 3px 6px !important;
 }
 
 .lawmaker__table-container--R {
@@ -17,14 +16,3 @@
   color: $democrat !important;
 }
 
-.lawmaker__name {
-  // using important to override bulma style
-  margin-bottom: $xs-size !important;
-}
-
-// .lawmaker__table {
-
-//   tr td:nth-child(2) {
-//     padding-left: $s-size;
-//   }
-// }
