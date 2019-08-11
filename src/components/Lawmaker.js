@@ -33,15 +33,14 @@ class Lawmaker extends React.Component {
 
     const chamberDistrict = position === "Sen." ? "SD" : "HD";
     const partyClass = party === "R" ? "lawmaker__table-container--R" : "lawmaker__table-container--D"
-    // TODO: Add email links to email row
     return (
-      <div className="lawmaker__container">
-        <div className={`lawmaker__table-container`}>
+      <div className="box lawmaker__container">
+        <div className="">
           <h2>
             {position} {first_name} {last_name} ({party}, {chamberDistrict} {district})
           </h2>
-          <table size={"fullwidth"} style={{fontSize: "12px"}}>
-            <tbody>
+          <table className="table is-striped">
+            <tbody className="is-size-7">
               {harrisburg_office_phone && <TableRow name="Capitol Ph" value={phoneLink(harrisburg_office_phone)} />}
               {district_office_phone && <TableRow name="District Ph" value={phoneLink(district_office_phone)} />}
               {email && <TableRow name="Email" value={<a href={"mailto:" + email}>{email}</a>} />}
@@ -55,12 +54,15 @@ class Lawmaker extends React.Component {
   }
 }
 
+// <div className="lawmaker__container">
+// <div className={`lawmaker__table-container`}>
+
+
 export default Lawmaker;
 
 const TableRow = ({name, value}) => (
   <tr>
-    <td>{name}:</td>
-    <td>{value}</td>
+    <td><b>{name}:</b></td> <td>{value}</td>
   </tr>
   )
 

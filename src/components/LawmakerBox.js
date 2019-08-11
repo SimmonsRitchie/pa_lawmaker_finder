@@ -4,6 +4,7 @@ import reps from './../../public/static/rep_contacts.json'
 import Lawmaker from './Lawmaker'
 import SuggestBox from './SuggestBox';
 import ButtonPrimary from './ButtonPrimary'
+import { msg } from '../constants/displayMsg'
 
 class LawmakerBox extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class LawmakerBox extends React.Component {
         {rep && <Lawmaker {...rep} />}
         {this.props.searchMethod === "geolocate" && 
           <SuggestBox 
-          message="Not your lawmakers? Try searching again with your address."
+          message={msg.NOT_YOUR_LAWMAKER_TRY_ADDRESS}
         />}
         <ButtonPrimary onClickEvt={this.props.handleBack} text="Back" back={true}/>
       </div>
