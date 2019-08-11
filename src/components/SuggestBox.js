@@ -11,7 +11,3 @@ const SuggestBox = ({message, error=null}) => {
   )}
 
 export default SuggestBox
-
-// <div className={`suggestBox__container ${errorClass}`}>
-// {message}
-// </div>
