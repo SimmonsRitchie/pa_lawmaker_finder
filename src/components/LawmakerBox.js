@@ -4,6 +4,7 @@ import reps from './../../public/static/rep_contacts.json'
 import Lawmaker from './Lawmaker'
 import SuggestBox from './SuggestBox';
 import ButtonPrimary from './ButtonPrimary'
+import ButtonCancel from './ButtonCancel'
 import { msg } from '../constants/displayMsg'
 
 class LawmakerBox extends React.Component {
@@ -24,7 +25,11 @@ class LawmakerBox extends React.Component {
           <SuggestBox 
           message={msg.NOT_YOUR_LAWMAKER_TRY_ADDRESS}
         />}
-        <ButtonPrimary onClickEvt={this.props.handleBack} text="Back" back={true}/>
+        <div className="buttons">
+          {this.props.searchMethod === "geolocate" && 
+          <ButtonPrimary onClickEvt={this.props.handleEnterAddress} text="Use address"/>}
+          <ButtonCancel onClickEvt={this.props.handleBack} text="Back"/>
+        </div>
       </div>
     )
   }

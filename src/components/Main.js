@@ -132,6 +132,7 @@ class Main extends React.Component {
             houseDistrict={this.state.houseDistrict}
             senateDistrict={this.state.senateDistrict}
             handleBack={this.handleBack}
+            handleEnterAddress={this.handleEnterAddress}
             searchMethod={this.state.searchMethod}
           />
         )}
