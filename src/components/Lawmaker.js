@@ -38,6 +38,9 @@ class Lawmaker extends React.Component {
         : "lawmaker__table-container--D";
     return (
       <div className="box lawmaker__container">
+      <div className="is-size-7 has-text-grey-dark has-text-weight-light is-pulled-right">
+      {chamber} District {district}
+      </div>
         <table className="table is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
@@ -46,9 +49,7 @@ class Lawmaker extends React.Component {
                   {position} {first_name} {last_name} ({party})
                 </div>
 
-                <div className="is-size-7 has-text-grey-dark has-text-weight-light">
-                  {chamber} District {district}
-                </div>
+
             </th>
             </tr>
           </thead>
