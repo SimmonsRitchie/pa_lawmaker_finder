@@ -5,12 +5,9 @@ import { msg } from '../constants/displayMsg'
 // GEOLOCATION
 const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
   setMessage(msg.SEARCHING_FOR_LAWMAKERS_GEOLOCATION, {italic: true})
-  // setMessage(msg.SEARCHING_FOR_LAWMAKERS)
   setLoader(true)
   // Check if geolocation functionality is available to client
-  // GEOLOCATION AVAILABLE:
-  console.log(window.isSecureContext)
-  if (window.isSecureContext && "geolocation" in navigator) {
+  if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
       // SUCCESS
       position => {
@@ -43,7 +40,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
         maximumAge: 0
       }
     );
-    // GEOLOCATION UNAVAILABLE:
+  // GEOLOCATION UNAVAILABLE:
   } else {
     setLoader(false)
     setMessage(msg.GEOLOCATION_UNAVAILABLE);
