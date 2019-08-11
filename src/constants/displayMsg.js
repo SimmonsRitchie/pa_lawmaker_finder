@@ -10,5 +10,6 @@ export const msg = {
   "GEOLOCATION_UNAVAILABLE": "Sorry we can't find your location due to your browser settings. Please try searching by address:",
   "ENTER_REQUIRED_FIELDS": "Please provide a city and address.",
   "ENTER_ONLY_NUMBERS_FOR_ZIPCODE": "Please only use numbers for zipcode field.",
-  "NOT_YOUR_LAWMAKER_TRY_ADDRESS": "Not your lawmakers? Try searching with your address:"
+  "NOT_YOUR_LAWMAKER_TRY_ADDRESS": "Not your lawmakers? Try searching with your address:",
+  "INPUT_YOUR_ADDRESS": "Enter your home address in Pa.:"
 }

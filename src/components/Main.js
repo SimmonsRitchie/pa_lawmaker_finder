@@ -8,7 +8,7 @@ import geolocate from "../utils/geolocate";
 import geocode from "./../utils/geocode";
 import InputAddress from "./InputAddress";
 import Loader from "./Loader";
-
+import {msg} from '../constants/displayMsg'
 
 class Main extends React.Component {
   state = {
@@ -34,7 +34,7 @@ class Main extends React.Component {
   setInputAddress = bool => {
     this.clearState();
     this.setState({ enableInputAddress: bool });
-    this.setMessage("Enter your Pa. address:");
+    this.setMessage(msg.INPUT_YOUR_ADDRESS);
   };
 
   // Updates state to enable buttonBox to display
