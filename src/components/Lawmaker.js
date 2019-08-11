@@ -1,5 +1,19 @@
 import React from "react";
 
+function phoneLink (phNumber) {
+  // make sure input not undefined and is string
+  if (!(typeof phNumber === 'string') || !phNumber) {
+    return phNumber
+  }
+  // make sure input is valid US phone number
+  const pat = /(\+?1-?)?\d{3}-?\d{3}-?\d{3}/
+  if (pat.test(phNumber)) {
+    return (<a href={`tel:+1-${phNumber}`}>{phNumber}</a>)
+  }
+  return phNumber
+}
+
+
 class Lawmaker extends React.Component {
   render() {
     const {
@@ -28,9 +42,9 @@ class Lawmaker extends React.Component {
           </h2>
           <table size={"fullwidth"} style={{fontSize: "12px"}}>
             <tbody>
-              {harrisburg_office_phone && <TableRow name="Capitol Ph" value={harrisburg_office_phone} />}
-              {district_office_phone && <TableRow name="District Ph" value={district_office_phone} />}
-              {email && <TableRow name="Email" value={email} />}
+              {harrisburg_office_phone && <TableRow name="Capitol Ph" value={phoneLink(harrisburg_office_phone)} />}
+              {district_office_phone && <TableRow name="District Ph" value={phoneLink(district_office_phone)} />}
+              {email && <TableRow name="Email" value={<a href={"mailto:" + email}>{email}</a>} />}
               {harrisburg_office_fax && <TableRow name="Harrisburg Office Fax" value={harrisburg_office_fax} />}
               {district_office_address && <TableRow name="District Office Address" value={`${district_office_address}, ${city}, PA ${zip}`} />}
             </tbody>
