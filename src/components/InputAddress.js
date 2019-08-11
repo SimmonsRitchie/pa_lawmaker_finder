@@ -61,6 +61,14 @@ class InputAddress extends React.Component {
     console.log("submitting...")
     e.preventDefault();
     if (!this.canBeSubmitted()) {
+      // We set all states to touched so that error/success styling appears on inputs
+      const allTouched = {}
+      Object.keys(this.state.touched).forEach( field => {
+        allTouched[field] = true
+      })
+      this.setState({
+        touched: {...allTouched}
+      })
       this.setState({errorMsg: "Please complete address and city."})
       return;
     }
@@ -153,14 +161,17 @@ const FormField = ({
   handleBlur
 }) => {
 
-  const colorClass = !errors[inputName] && touched[inputName] ? 'is-success' : null
+  // Success style: input has had focus AND no errors detected
+  const successClass = touched[inputName] && !errors[inputName]  ? 'is-success' : null
+  // Error style: input has had focus AND error detected
+  const errorClass = touched[inputName] && errors[inputName] ? 'is-danger' : null
 
   return (
     <div className="field">
     <label className="label">{label}:</label>
     <div className="control">
       <input
-      className={`input ${colorClass}`}
+      className={`input ${successClass} ${errorClass}`}
       onChange={onChange}
       name={inputName}
       type={inputType}
