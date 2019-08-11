@@ -8,6 +8,6 @@ export const msg = {
   "LOCATION_NOT_FOUND": "Sorry, we couldn't find your location. Please try again:",
   "LOCATION_NOT_FOUND_TRY_ADDRESS": "Sorry, we couldn't find your location. Please try searching by address:",
   "GEOLOCATION_UNAVAILABLE": "Sorry we can't find your location due to your browser settings. Please try searching by address:",
-  "ENTER_REQUIRED_FIELDS": "Please provide an address and city.",
+  "ENTER_REQUIRED_FIELDS": "Please provide a city and address.",
   "ENTER_ONLY_NUMBERS_FOR_ZIPCODE": "Please only use numbers for zipcode field."
 }
