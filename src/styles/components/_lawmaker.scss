@@ -32,19 +32,38 @@
   color: $republican !important;
 }
 
+.lawmaker__republican-phone {
+  @extend .lawmaker__republican;
+
+  &:before {
+    content: "\260E";
+    margin-right: 0.5em;
+}
+}
+
 .lawmaker__democrat {
   color: $democrat !important;
 }
 
+.lawmaker__democrat-phone {
+  @extend .lawmaker__democrat;
+
+  &:before {
+    content: "\260E";
+    margin-right: 0.5em;
+}
+}
 
 .lawmaker__republican-sub {
   @media (max-width: 450px) {
-    color: $republican !important;
+    // color: $republican !important;
+    color: $grey-dark !important;
   }
 }
 
 .lawmaker__democrat-sub {
   @media (max-width: 450px) {
-    color: $democrat !important;
+    // color: $democrat !important;
+    color: $grey-dark !important;
   }}
 

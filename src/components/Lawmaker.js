@@ -1,6 +1,6 @@
 import React from "react";
 
-function phoneLink(phNumber) {
+function phoneLink(phNumber, party) {
   // make sure input not undefined and is string
   if (!(typeof phNumber === "string") || !phNumber) {
     return phNumber;
@@ -8,7 +8,10 @@ function phoneLink(phNumber) {
   // make sure input is valid US phone number
   const pat = /(\+?1-?)?\d{3}-?\d{3}-?\d{3}/;
   if (pat.test(phNumber)) {
-    return <a href={`tel:+1-${phNumber}`}>{phNumber}</a>;
+    const partyClass = party === "R" ? "lawmaker__republican-phone" : "lawmaker__democrat-phone"
+    return (<a className={partyClass}
+    href={`tel:+1-${phNumber}`}>{phNumber}
+    </a>);
   }
   return phNumber;
 }
@@ -63,13 +66,13 @@ class Lawmaker extends React.Component {
             {harrisburg_office_phone && (
               <TableRow
                 name="Capitol Ph"
-                value={phoneLink(harrisburg_office_phone)}
+                value={phoneLink(harrisburg_office_phone, party)}
               />
             )}
             {district_office_phone && (
               <TableRow
                 name="District Ph"
-                value={phoneLink(district_office_phone)}
+                value={phoneLink(district_office_phone, party)}
               />
             )}
             {email && (
