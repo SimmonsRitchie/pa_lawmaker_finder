@@ -2,7 +2,7 @@ import React from "react";
 
 // This is primary button used in our app.
 
-const Button1 = ({ text, onClickEvt, back }) => {
+const ButtonPrimary = ({ text, onClickEvt, back }) => {
   let icon = ""
   if (back) {
     icon = "fa-chevron-left"
@@ -12,6 +12,7 @@ const Button1 = ({ text, onClickEvt, back }) => {
   <button
     className="button is-primary is-fullwidith button__primary"
     onClick={onClickEvt}
+    type="button"
   >
   {icon && 
     <span className="icon">
@@ -22,5 +23,5 @@ const Button1 = ({ text, onClickEvt, back }) => {
   </button>
 )};
 
-export default Button1
+export default ButtonPrimary
 

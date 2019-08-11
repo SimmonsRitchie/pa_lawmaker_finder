@@ -1,13 +1,14 @@
 import React from "react";
-import Button1 from './Button1'
+import ButtonCancel from './ButtonCancel'
+import ButtonSubmit from './ButtonSubmit'
 import SuggestBox from './SuggestBox'
 
-function validate(address, city, county, postalcode) {
-  // true means invalid
+function validate(address, city, postalcode) {
+  // true means invalidß
   return {
     address: address.length === 0,
     city: city.length === 0,
-    postalcode: postalcode.length === 0,
+    // postalcode: postalcode.length === 0,
   };
 }
 
@@ -16,7 +17,12 @@ class InputAddress extends React.Component {
     address: "",
     city: "",
     postalcode: "",
-    errorMsg: ""
+    errorMsg: "",
+    touched: {
+      address: false,
+      city: false,
+      postalcode: false,
+    },
   };
 
   componentDidUpdate() {
@@ -25,13 +31,19 @@ class InputAddress extends React.Component {
     pymChild.sendHeight();
   }
 
+  handleBlur = (field) => {
+    this.setState({
+      touched: { ...this.state.touched, [field]: true },
+    });
+  }
+
   onChange = e => {
+    this.setState({errorMsg: ""}) // clear error message
     const value = e.target.value;
     const name = e.target.name;
     // Validation for zip: only accept number, must be < 5 char
     const pat = /\D/;
     if (name === 'postalcode') {
-      this.setState({errorMsg: ""})
       if (value.length > 5) {
         return
       }
@@ -46,12 +58,12 @@ class InputAddress extends React.Component {
   };
 
   handleSubmit = e => {
+    console.log("submitting...")
     e.preventDefault();
     if (!this.canBeSubmitted()) {
-      this.setState({errorMsg: "Please complete all fields."})
+      this.setState({errorMsg: "Please complete address and city."})
       return;
     }
-
     // We only expect addresses in Pennsylvania so we provide these address params
     const defaultVals = { state: "PA", country: "USA" };
     this.props.handleGeocode({ ...this.state, ...defaultVals });
@@ -66,47 +78,66 @@ class InputAddress extends React.Component {
 
   render() {
     const { address, city, county, postalcode } = this.state;
-    const errors = validate(this.state.address, this.state.city, this.state.county, this.state.postalcode);
+    const errors = validate(this.state.address, this.state.city, this.state.postalcode);
     return (
       <div className="form__container">
         <div className="form__container-inner">
-          <FormField
-            label="Address"
-            placeholder="Your address"
-            inputType="text"
-            inputName="address"
-            inputValue={address}
-            onChange={this.onChange}
-            errors={errors}
-          />
-          <FormField
-            label="City"
-            placeholder="Your city"
-            inputType="text"
-            inputName="city"
-            inputValue={city}
-            onChange={this.onChange}
-            errors={errors}
-          />
-          <FormField
-            label="Zipcode"
-            placeholder="Your zipcode"
-            inputType="text"
-            inputName="postalcode"
-            inputValue={postalcode}
-            onChange={this.onChange}
-            errors={errors}
-          />
-        </div>
-        {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
-        <div className="form__buttonBox">
-          <Button1 onClickEvt={this.props.handleBack} text="Back" back={true} />
-          <Button1 onClickEvt={this.handleSubmit} text="Submit" />
+          <form onSubmit={this.handleSubmit}>
+            <FormField
+              label="Address"
+              placeholder="Your address"
+              inputType="text"
+              inputName="address"
+              inputValue={address}
+              onChange={this.onChange}
+              errors={errors}
+              touched={this.state.touched}
+              handleBlur={this.handleBlur}
+            />
+            <FormField
+              label="City"
+              placeholder="Your city"
+              inputType="text"
+              inputName="city"
+              inputValue={city}
+              onChange={this.onChange}
+              errors={errors}
+              touched={this.state.touched}
+              handleBlur={this.handleBlur}
+            />
+            <FormField
+              label="Zipcode"
+              placeholder="Your zipcode"
+              inputType="text"
+              inputName="postalcode"
+              inputValue={postalcode}
+              onChange={this.onChange}
+              errors={errors}
+              touched={this.state.touched}
+              handleBlur={this.handleBlur}
+            />
+            {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
+          <div>
+              <div className="field is-grouped is-grouped-centered">
+                <div className="control">
+                  <ButtonSubmit text="Submit"/>
+                </div>
+                <div className="control">
+                  <ButtonCancel onClickEvt={this.props.handleBack} text="Cancel"/>
+                </div>
+              </div>
+          </div>
+        </form>
         </div>
       </div>
     );
   }
 }
+
+// <div className="control">
+// <Button2 text="Submit" />
+// </div>
+// 
 
 export default InputAddress;
 
@@ -117,9 +148,13 @@ const FormField = ({
   inputName,
   inputValue,
   onChange,
-  errors
+  errors,
+  touched,
+  handleBlur
 }) => {
-  const colorClass = !errors[inputName] ? 'is-success' : null
+
+  const colorClass = !errors[inputName] && touched[inputName] ? 'is-success' : null
+
   return (
     <div className="field">
     <label className="label">{label}:</label>
@@ -131,6 +166,7 @@ const FormField = ({
       type={inputType}
       placeholder={placeholder}
       value={inputValue}
+      onBlur={() => handleBlur(inputName)}
       />
     </div>
     </div>

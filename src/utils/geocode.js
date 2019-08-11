@@ -16,6 +16,7 @@ import { checkPointWithinGeography } from './findWithin'
 */
 
 const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) => {
+  console.log("Geocoding...")
   setLoader(true)
   setMessage(msg.SEARCHING_FOR_LAWMAKERS, {italic: true})
   const geocoder = new Nominatim({
@@ -23,6 +24,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
   })
   geocoder.search( address )
       .then((response) => {
+        console.log(response)
         setLoader(false)
         // Geocoder returns an array of the best matches, we take the first.
         const bestMatch = response[0]
@@ -31,7 +33,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
           const houseDistrict = checkPointWithinGeography({inputLat, inputLng, bounds:"house"})
           const senDistrict = checkPointWithinGeography({inputLat, inputLng, bounds:"senate"})
           if (senDistrict == undefined || houseDistrict == undefined) {
-            setMessage(msg.LOCATION_NOT_IN_DISTRICTS)
+            setMessage(msg.LOCATION_OUTSIDE_DISTRICTS)
             setButtonBox(true)
           } else {
             setDistricts( houseDistrict, senDistrict)
@@ -40,6 +42,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
           return
       })
       .catch((error) => {
+          console.log(error)
           setLoader(false)
           setMessage(msg.LOCATION_NOT_FOUND)
           setButtonBox(true)
