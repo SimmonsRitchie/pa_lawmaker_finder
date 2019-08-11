@@ -20,7 +20,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
         const houseDistrict = checkPointWithinGeography({inputLat: userLat, inputLng:userLng, bounds:'house'})
         const senDistrict = checkPointWithinGeography({inputLat: userLat, inputLng:userLng, bounds:'senate'})
         if (senDistrict == undefined || houseDistrict == undefined) {
-          setMessage(msg.LOCATION_OUTSIDE_DISTRICTS)
+          setMessage(msg.LOCATION_OUTSIDE_DISTRICTS_GEOLOCATION)
           setButtonBox(true)
         } else {
           setDistricts( houseDistrict, senDistrict)

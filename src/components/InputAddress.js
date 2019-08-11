@@ -2,13 +2,13 @@ import React from "react";
 import ButtonCancel from './ButtonCancel'
 import ButtonSubmit from './ButtonSubmit'
 import SuggestBox from './SuggestBox'
+import { msg } from '../constants/displayMsg'
 
-function validate(address, city, postalcode) {
-  // true means invalidß
+function validate(address, city) {
+  // required fields - can't be empty
   return {
     address: address.length === 0,
     city: city.length === 0,
-    // postalcode: postalcode.length === 0,
   };
 }
 
@@ -48,7 +48,7 @@ class InputAddress extends React.Component {
         return
       }
       if (pat.test(value)) {
-        this.setState({errorMsg: "Please only use numbers for zipcode field."})
+        this.setState({errorMsg: msg.ENTER_ONLY_NUMBERS_FOR_ZIPCODE})
         return
       }
     }
@@ -69,7 +69,7 @@ class InputAddress extends React.Component {
       this.setState({
         touched: {...allTouched}
       })
-      this.setState({errorMsg: "Please complete address and city."})
+      this.setState({errorMsg: msg.ENTER_REQUIRED_FIELDS})
       return;
     }
     // We only expect addresses in Pennsylvania so we provide these address params
@@ -78,7 +78,7 @@ class InputAddress extends React.Component {
   };
 
   canBeSubmitted = () => {
-    const errors = validate(this.state.address, this.state.city, this.state.county, this.state.postalcode);
+    const errors = validate(this.state.address, this.state.city);
     // checks if any fields in error obj are set to 'true'
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
@@ -142,10 +142,6 @@ class InputAddress extends React.Component {
   }
 }
 
-// <div className="control">
-// <Button2 text="Submit" />
-// </div>
-// 
 
 export default InputAddress;
 
