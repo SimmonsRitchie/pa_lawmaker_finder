@@ -1,6 +1,6 @@
 import React from "react";
 
-function phoneLink(phNumber, party) {
+const phoneLink = (phNumber, party) => {
   // make sure input not undefined and is string
   if (!(typeof phNumber === "string") || !phNumber) {
     return phNumber;
@@ -14,6 +14,21 @@ function phoneLink(phNumber, party) {
     </a>);
   }
   return phNumber;
+}
+
+const mailLink = (email, party) => {
+    // make sure input not undefined and is string
+    if (!(typeof email === "string") || !email) {
+      return email;
+    }
+    // make sure input is valid email address
+    const pat = /.+@.+\.com/;
+    if (pat.test(email)) {
+      const partyClass = party === "R" ? "lawmaker__republican-email" : "lawmaker__democrat-email"
+      return (<a className={partyClass}
+      href={`mailto:${email}`}>{email}
+      </a>);
+    }
 }
 
 class Lawmaker extends React.Component {
@@ -78,7 +93,7 @@ class Lawmaker extends React.Component {
             {email && (
               <TableRow
                 name="Email"
-                value={<a href={"mailto:" + email}>{email}</a>}
+                value={mailLink(email, party)}
               />
             )}
             {harrisburg_office_fax && (

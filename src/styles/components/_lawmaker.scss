@@ -54,6 +54,15 @@
 }
 }
 
+.lawmaker__democrat-email {
+  @extend .lawmaker__democrat;
+
+  &:before {
+    content: "\1F4E7";
+    margin-right: 0.5em;
+}
+}
+
 .lawmaker__republican-sub {
   @media (max-width: 450px) {
     // color: $republican !important;
