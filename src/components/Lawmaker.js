@@ -11,7 +11,7 @@ const phoneLink = (phNumber, party) => {
     const partyClass =
       party === "R" ? "lawmaker__republican-phone" : "lawmaker__democrat-phone";
     return (
-      <a className={partyClass} href={`tel:+1-${phNumber}`}>
+      <a className={`${partyClass}`} href={`tel:+1-${phNumber}`}>
         {phNumber}
       </a>
     );
@@ -30,9 +30,11 @@ const mailLink = (email, party) => {
     const partyClass =
       party === "R" ? "lawmaker__republican-email" : "lawmaker__democrat-email";
     return (
-      <a className={partyClass} href={`mailto:${email}`}>
-        {email}
-      </a>
+      <div className="lawmaker__break-word-container">
+      	<a className={`${partyClass}`} href={`mailto:${email}`}>
+      	  {email}
+      	</a>
+      </div>
     );
   }
 };
