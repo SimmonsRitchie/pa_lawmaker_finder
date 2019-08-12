@@ -1,5 +1,5 @@
 .form__container {
-  padding-bottom: $s-size;
+  // padding-bottom: $s-size;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,6 +8,10 @@
 
 .form__container-inner {
   width: 70%;
+  padding-bottom: $s-size;
+}
+
+.form__container-input {
   padding-bottom: $s-size;
 }
 

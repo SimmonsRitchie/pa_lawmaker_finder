@@ -92,41 +92,43 @@ class InputAddress extends React.Component {
       <div className="form__container">
         <div className="form__container-inner">
           <form onSubmit={this.handleSubmit}>
-            <FormField
-              label="Address"
-              placeholder="Your address"
-              inputType="text"
-              inputName="address"
-              inputValue={address}
-              onChange={this.onChange}
-              errors={errors}
-              touched={this.state.touched}
-              handleBlur={this.handleBlur}
-            />
-            <FormField
-              label="City"
-              placeholder="Your city"
-              inputType="text"
-              inputName="city"
-              inputValue={city}
-              onChange={this.onChange}
-              errors={errors}
-              touched={this.state.touched}
-              handleBlur={this.handleBlur}
-            />
-            <FormField
-              label="Zipcode"
-              placeholder="Your zipcode"
-              inputType="text"
-              inputName="postalcode"
-              inputValue={postalcode}
-              onChange={this.onChange}
-              errors={errors}
-              touched={this.state.touched}
-              handleBlur={this.handleBlur}
-              addExtaField={"PA"}
-            />
-            {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
+            <div className="form__container-input">
+              <FormField
+                label="Address"
+                placeholder="Your address"
+                inputType="text"
+                inputName="address"
+                inputValue={address}
+                onChange={this.onChange}
+                errors={errors}
+                touched={this.state.touched}
+                handleBlur={this.handleBlur}
+              />
+              <FormField
+                label="City"
+                placeholder="Your city"
+                inputType="text"
+                inputName="city"
+                inputValue={city}
+                onChange={this.onChange}
+                errors={errors}
+                touched={this.state.touched}
+                handleBlur={this.handleBlur}
+              />
+              <FormField
+                label="Zipcode"
+                placeholder="Your zipcode"
+                inputType="text"
+                inputName="postalcode"
+                inputValue={postalcode}
+                onChange={this.onChange}
+                errors={errors}
+                touched={this.state.touched}
+                handleBlur={this.handleBlur}
+                addExtaField={"PA"}
+              />
+              {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
+            </div>
           <div>
               <div className="field is-grouped is-grouped-centered">
                 <div className="control">
@@ -171,6 +173,11 @@ const FormField = ({
     <div className={`field`}>
     <label className="label">{label}:</label>
     <div className={`field ${addOnClass}`}>
+    {addExtaField && 
+      <div className="control">
+        <div className="button is-static">{addExtaField}</div>
+      </div>
+    }
       <div className="control is-expanded">
         <input
         className={`input ${successClass} ${errorClass}`}
@@ -182,11 +189,7 @@ const FormField = ({
         onBlur={() => handleBlur(inputName)}
         />
       </div>
-      {addExtaField && 
-        <div className="control">
-          <div className="button is-static">{addExtaField}</div>
-        </div>
-      }
+
     </div>
     </div>
 )}
