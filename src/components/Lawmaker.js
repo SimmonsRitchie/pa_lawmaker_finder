@@ -25,18 +25,19 @@ const mailLink = (email, party) => {
     return email;
   }
   // make sure input is valid email address
-  const pat = /.+@.+\.com/;
+  const pat = /.+@.+\..+/;
   if (pat.test(email)) {
     const partyClass =
       party === "R" ? "lawmaker__republican-email" : "lawmaker__democrat-email";
     return (
       <div className="lawmaker__break-word-container">
-      	<a className={`${partyClass}`} href={`mailto:${email}`}>
-      	  {email}
-      	</a>
+        <a className={`${partyClass}`} href={`mailto:${email}`}>
+          {email}
+        </a>
       </div>
     );
   }
+  return email;
 };
 
 class Lawmaker extends React.Component {
