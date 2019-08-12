@@ -35,6 +35,7 @@ class Main extends React.Component {
     // Because our app changes height based on displayed content, we 
     // update the iframe height after DOM elements have been updated.
     pymChild.sendHeight();
+    document.getElementById("app").scrollIntoView();
   }
 
   // Updates state to enable address forms to display
