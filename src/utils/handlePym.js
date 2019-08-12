@@ -2,7 +2,7 @@
 
 export const pymSendHeight = () => {
   pymChild.sendHeight();
-  console.log("Scrolling to app...")
-  document.getElementById("app").scrollIntoView(false);
+  // console.log("Scrolling to app...")
+  // document.getElementById("app").scrollIntoView(false);
 }
 
