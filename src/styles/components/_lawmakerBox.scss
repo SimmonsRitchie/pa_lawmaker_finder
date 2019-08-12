@@ -5,3 +5,11 @@
   flex-direction: column;
   padding-bottom: $s-size;
 }
+
+.lawmakerBox__container-inner {
+  display: flex;
+  padding-bottom: $s-size;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

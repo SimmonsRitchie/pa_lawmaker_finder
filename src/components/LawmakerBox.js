@@ -19,12 +19,14 @@ class LawmakerBox extends React.Component {
     const rep = reps.filter(rep => rep.district == this.props.houseDistrict)[0]
     return (
       <div className="lawmakerBox__container">
-        {sen && <Lawmaker {...sen} />}
-        {rep && <Lawmaker {...rep} />}
-        {this.props.searchMethod === "geolocate" && 
-          <SuggestBox 
-          message={msg.NOT_YOUR_LAWMAKER_TRY_ADDRESS}
-        />}
+        <div className="lawmakerBox__container-inner">
+          {sen && <Lawmaker {...sen} />}
+          {rep && <Lawmaker {...rep} />}
+          {this.props.searchMethod === "geolocate" && 
+            <SuggestBox 
+            message={msg.NOT_YOUR_LAWMAKER_TRY_ADDRESS}
+          />}
+        </div>
         <div className="buttons">
           {this.props.searchMethod === "geolocate" && 
           <ButtonPrimary onClickEvt={this.props.handleEnterAddress} text="Use address"/>}
