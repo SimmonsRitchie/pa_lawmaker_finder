@@ -11,7 +11,6 @@ import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
 /*
-TODO: Adjust pym so that when height changes, we are oriented to top of app
 TODO: Add 'State: PA' button to field
 */
 
