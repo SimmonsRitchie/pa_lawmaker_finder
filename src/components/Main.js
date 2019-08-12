@@ -9,7 +9,7 @@ import geocode from "./../utils/geocode";
 import InputAddress from "./InputAddress";
 import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
-
+import {pymSendHeight} from '../utils/handlePym'
 /*
 TODO: Adjust pym so that when height changes, we are oriented to top of app
 TODO: Add 'State: PA' button to field
@@ -32,9 +32,7 @@ class Main extends React.Component {
   componentDidUpdate() {
     // Because our app changes height based on displayed content, we 
     // update the iframe height after DOM elements have been updated.
-    pymChild.sendHeight();
-    console.log("Scrolling to top...")
-    document.getElementById("app").scrollIntoView(true);
+    pymSendHeight()
   }
 
   // Updates state to enable address forms to display

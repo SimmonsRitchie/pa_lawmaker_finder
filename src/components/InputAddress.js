@@ -3,6 +3,7 @@ import ButtonCancel from './ButtonCancel'
 import ButtonSubmit from './ButtonSubmit'
 import SuggestBox from './SuggestBox'
 import { msg } from '../constants/displayMsg'
+import {pymSendHeight} from '../utils/handlePym'
 
 function validate(address, city) {
   // required fields - can't be empty
@@ -28,7 +29,7 @@ class InputAddress extends React.Component {
   componentDidUpdate() {
     // Because our app changes height based on displayed content, we 
     // update the iframe height after DOM elements have been updated.
-    pymChild.sendHeight();
+    pymSendHeight;
   }
 
   handleBlur = (field) => {
