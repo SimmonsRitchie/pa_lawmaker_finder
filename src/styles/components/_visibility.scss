@@ -2,7 +2,7 @@
 what size screen you're viewing it on. */
 
 .show-for-mobile {
-    @media (min-width: $desktop-breakpoint) {
+    @media (min-width: $mid-breakpoint) {
         display: none;
     } 
 }

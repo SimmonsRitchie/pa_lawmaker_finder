@@ -13,6 +13,8 @@ import {msg} from '../constants/displayMsg'
 /*
 TODO: Adjust pym so that when height changes, we are oriented to top of app
 TODO: Hide 'use current location' button when screen width < 500px
+TODO: Expand width to 772px
+TODO: Add 'State: PA' button to field
 */
 
 class Main extends React.Component {

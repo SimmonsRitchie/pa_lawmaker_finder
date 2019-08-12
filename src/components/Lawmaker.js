@@ -8,28 +8,34 @@ const phoneLink = (phNumber, party) => {
   // make sure input is valid US phone number
   const pat = /(\+?1-?)?\d{3}-?\d{3}-?\d{3}/;
   if (pat.test(phNumber)) {
-    const partyClass = party === "R" ? "lawmaker__republican-phone" : "lawmaker__democrat-phone"
-    return (<a className={partyClass}
-    href={`tel:+1-${phNumber}`}>{phNumber}
-    </a>);
+    const partyClass =
+      party === "R" ? "lawmaker__republican-phone" : "lawmaker__democrat-phone";
+    return (
+      <a className={partyClass} href={`tel:+1-${phNumber}`}>
+        {phNumber}
+      </a>
+    );
   }
   return phNumber;
-}
+};
 
 const mailLink = (email, party) => {
-    // make sure input not undefined and is string
-    if (!(typeof email === "string") || !email) {
-      return email;
-    }
-    // make sure input is valid email address
-    const pat = /.+@.+\.com/;
-    if (pat.test(email)) {
-      const partyClass = party === "R" ? "lawmaker__republican-email" : "lawmaker__democrat-email"
-      return (<a className={partyClass}
-      href={`mailto:${email}`}>{email}
-      </a>);
-    }
-}
+  // make sure input not undefined and is string
+  if (!(typeof email === "string") || !email) {
+    return email;
+  }
+  // make sure input is valid email address
+  const pat = /.+@.+\.com/;
+  if (pat.test(email)) {
+    const partyClass =
+      party === "R" ? "lawmaker__republican-email" : "lawmaker__democrat-email";
+    return (
+      <a className={partyClass} href={`mailto:${email}`}>
+        {email}
+      </a>
+    );
+  }
+};
 
 class Lawmaker extends React.Component {
   render() {
@@ -51,30 +57,26 @@ class Lawmaker extends React.Component {
     const chamberDistrict = position === "Sen." ? "SD" : "HD";
     const chamber = position === "Sen." ? "Senate" : "House";
     const partyColorMain =
-      party === "R"
-        ? "lawmaker__republican"
-        : "lawmaker__democrat";
+      party === "R" ? "lawmaker__republican" : "lawmaker__democrat";
     const partyColorSub =
-      party === "R"
-        ? "lawmaker__republican-sub"
-        : "lawmaker__democrat-sub";
+      party === "R" ? "lawmaker__republican-sub" : "lawmaker__democrat-sub";
     return (
       <div className="box lawmaker__container">
-
         <table className="table is-striped is-narrow is-hoverable is-fullwidth">
           <thead>
             <tr>
-            <th colSpan="2" className={`lawmaker__th`}>
+              <th colSpan="2" className={`lawmaker__th`}>
                 <div className="lawmaker__th-container">
                   <div className={`is-size-6 ${partyColorMain}`}>
                     {position} {first_name} {last_name} ({party})
                   </div>
-                  <div className={`has-text-grey-dark has-text-weight-light lawmaker__district ${partyColorSub}`}>
-                  {chamber} District {district}
+                  <div
+                    className={`has-text-grey-dark has-text-weight-light lawmaker__district ${partyColorSub}`}
+                  >
+                    {chamber} District {district}
                   </div>
                 </div>
-
-            </th>
+              </th>
             </tr>
           </thead>
           <tbody className="is-size-7">
@@ -90,12 +92,7 @@ class Lawmaker extends React.Component {
                 value={phoneLink(district_office_phone, party)}
               />
             )}
-            {email && (
-              <TableRow
-                name="Email"
-                value={mailLink(email, party)}
-              />
-            )}
+            {email && <TableRow name="Email" value={mailLink(email, party)} />}
             {harrisburg_office_fax && (
               <TableRow
                 name="Harrisburg Office Fax"
@@ -119,6 +116,7 @@ export default Lawmaker;
 
 const TableRow = ({ name, value }) => (
   <tr>
-    <td>{name}:</td> <td>{value}</td>
+    <td>{name}:</td>
+    <td>{value}</td>
   </tr>
 );
