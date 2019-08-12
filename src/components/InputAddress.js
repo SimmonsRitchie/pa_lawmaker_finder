@@ -124,6 +124,7 @@ class InputAddress extends React.Component {
               errors={errors}
               touched={this.state.touched}
               handleBlur={this.handleBlur}
+              addExtaField={"PA"}
             />
             {this.state.errorMsg && <SuggestBox message={this.state.errorMsg} error={true} />}
           <div>
@@ -155,7 +156,8 @@ const FormField = ({
   onChange,
   errors,
   touched,
-  handleBlur
+  handleBlur,
+  addExtaField = false
 }) => {
 
   // Success style: input has had focus AND no errors detected
@@ -163,19 +165,28 @@ const FormField = ({
   // Error style: input has had focus AND error detected
   const errorClass = touched[inputName] && errors[inputName] ? 'is-danger' : null
 
+  const addOnClass = addExtaField ? "has-addons" : ""
+
   return (
-    <div className="field">
+    <div className={`field`}>
     <label className="label">{label}:</label>
-    <div className="control">
-      <input
-      className={`input ${successClass} ${errorClass}`}
-      onChange={onChange}
-      name={inputName}
-      type={inputType}
-      placeholder={placeholder}
-      value={inputValue}
-      onBlur={() => handleBlur(inputName)}
-      />
+    <div className={`field ${addOnClass}`}>
+      <div className="control is-expanded">
+        <input
+        className={`input ${successClass} ${errorClass}`}
+        onChange={onChange}
+        name={inputName}
+        type={inputType}
+        placeholder={placeholder}
+        value={inputValue}
+        onBlur={() => handleBlur(inputName)}
+        />
+      </div>
+      {addExtaField && 
+        <div className="control">
+          <div className="button is-static">{addExtaField}</div>
+        </div>
+      }
     </div>
     </div>
 )}
