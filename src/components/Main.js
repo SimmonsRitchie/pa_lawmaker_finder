@@ -12,8 +12,6 @@ import {msg} from '../constants/displayMsg'
 
 /*
 TODO: Adjust pym so that when height changes, we are oriented to top of app
-TODO: Hide 'use current location' button when screen width < 500px
-TODO: Expand width to 772px
 TODO: Add 'State: PA' button to field
 */
 
@@ -35,7 +33,8 @@ class Main extends React.Component {
     // Because our app changes height based on displayed content, we 
     // update the iframe height after DOM elements have been updated.
     pymChild.sendHeight();
-    document.getElementById("app").scrollIntoView();
+    console.log("Scrolling to top...")
+    document.getElementById("app").scrollIntoView(true);
   }
 
   // Updates state to enable address forms to display
