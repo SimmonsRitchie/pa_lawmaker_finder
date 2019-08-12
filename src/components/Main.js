@@ -10,6 +10,11 @@ import InputAddress from "./InputAddress";
 import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 
+/*
+TODO: Adjust pym so that when height changes, we are oriented to top of app
+TODO: Hide 'use current location' button when screen width < 500px
+*/
+
 class Main extends React.Component {
   state = {
     houseDistrict: "",
