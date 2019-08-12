@@ -10,9 +10,7 @@ import InputAddress from "./InputAddress";
 import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
-/*
-TODO: Add 'State: PA' button to field
-*/
+
 
 class Main extends React.Component {
   state = {
