@@ -22,6 +22,7 @@
   height: auto;
   margin-left: 0.5em;
 
+  // hide logo on small screens because it looks awkward
   @media (max-width: 460px) {
     display: none;
   }
