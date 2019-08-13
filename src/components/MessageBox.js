@@ -25,7 +25,7 @@ const MessageBox = ({message: {content, italic=false, icon=false}}) => {
 
   return (
     <div className="messageBox__container">
-      <span className={`has-text-centered is-size-6 ${italicClass}`}>
+      <span className={`has-text-centered subtitle is-6 ${italicClass}`}>
       {icon && <FontAwesomeIcon className={`messageBox__icon ${iconColorClass}`} icon={iconSymbol} />}
       {content}</span>
     </div>
