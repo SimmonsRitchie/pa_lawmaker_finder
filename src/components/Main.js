@@ -21,7 +21,8 @@ class Main extends React.Component {
     senateDistrict: "",
     message: {
       content: "Find out who represents you in the Pa. Legislature:",
-      italic: false
+      italic: false,
+      icon: false
     },
     loading: false,
     enableInputAddress: false,
@@ -56,10 +57,12 @@ class Main extends React.Component {
   };
 
   // Updates action/error message displayed to user
-  setMessage = (content="",{italic=false}={}) => {
+  setMessage = (content="",{italic=false, icon=false}={}) => {
+    console.log("SetMessage icon=",icon)
     this.setState({ message: {
       content,
-      italic
+      italic,
+      icon
     } });
   };
 
@@ -75,7 +78,8 @@ class Main extends React.Component {
       senateDistrict: "",
       message: {
         content: "Find out who represents you in the Pa. Legislature:",
-        italic: false
+        italic: false,
+        icon: false
       },
       loading: false,
       enableInputAddress: false,
@@ -118,7 +122,7 @@ class Main extends React.Component {
     return (
       <div className="container__main">
         <Header />
-        {this.state.message && <MessageBox content={this.state.message.content} italic={this.state.message.italic} />}
+        {this.state.message && <MessageBox message={this.state.message} />}
         {this.state.enableButtonBox && (
           <ButtonBox
             handleGeolocate={this.handleGeolocate}

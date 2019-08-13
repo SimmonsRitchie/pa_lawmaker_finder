@@ -31,7 +31,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
           const houseDistrict = checkPointWithinGeography({inputLat, inputLng, bounds:"house"})
           const senDistrict = checkPointWithinGeography({inputLat, inputLng, bounds:"senate"})
           if (senDistrict == undefined || houseDistrict == undefined) {
-            setMessage(msg.LOCATION_OUTSIDE_DISTRICTS_GEOCODE)
+            setMessage(msg.LOCATION_OUTSIDE_DISTRICTS_GEOCODE, {icon:"exclamation"})
             setButtonBox(true)
           } else {
             setDistricts( houseDistrict, senDistrict)
@@ -41,7 +41,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
       })
       .catch((error) => {
           setLoader(false)
-          setMessage(msg.LOCATION_NOT_FOUND)
+          setMessage(msg.LOCATION_NOT_FOUND, {icon:"exclamation"})
           setButtonBox(true)
           return
       })

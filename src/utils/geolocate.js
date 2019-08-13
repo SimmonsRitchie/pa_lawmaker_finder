@@ -17,7 +17,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
         const houseDistrict = checkPointWithinGeography({inputLat: userLat, inputLng:userLng, bounds:'house'})
         const senDistrict = checkPointWithinGeography({inputLat: userLat, inputLng:userLng, bounds:'senate'})
         if (senDistrict == undefined || houseDistrict == undefined) {
-          setMessage(msg.LOCATION_OUTSIDE_DISTRICTS_GEOLOCATION)
+          setMessage(msg.LOCATION_OUTSIDE_DISTRICTS_GEOLOCATION, {icon:"exclamation"})
           setButtonBox(true)
         } else {
           setDistricts( houseDistrict, senDistrict)
@@ -29,7 +29,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
       err => {
         setLoader(false)
         console.log(err);
-        setMessage(msg.LOCATION_NOT_FOUND_TRY_ADDRESS)
+        setMessage(msg.LOCATION_NOT_FOUND_TRY_ADDRESS, {icon:"exclamation"})
         setButtonBox(true)
         return
       },
@@ -43,7 +43,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
   // GEOLOCATION UNAVAILABLE:
   } else {
     setLoader(false)
-    setMessage(msg.GEOLOCATION_UNAVAILABLE);
+    setMessage(msg.GEOLOCATION_UNAVAILABLE, {icon:"exclamation"});
     setButtonBox(true)
     return
   }
