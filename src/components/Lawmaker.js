@@ -12,7 +12,7 @@ const phoneLink = (phNumber, party) => {
       party === "R" ? "lawmaker__republican-phone" : "lawmaker__democrat-phone";
     return (
       <a className={`${partyClass}`} href={`tel:+1-${phNumber}`}>
-        {phNumber}
+        {phNumber.trim()}
       </a>
     );
   }
@@ -32,7 +32,7 @@ const mailLink = (email, party) => {
     return (
       <div className="lawmaker__break-word-container">
         <a className={`${partyClass}`} href={`mailto:${email}`}>
-          {email}
+          {email.trim()}
         </a>
       </div>
     );
@@ -57,30 +57,11 @@ class Lawmaker extends React.Component {
       email
     } = this.props;
 
-    const chamber = position === "Sen." ? "Senate" : "House";
-    const partyColorMain =
-      party === "R" ? "lawmaker__republican" : "lawmaker__democrat";
-    const partyColorSub =
-      party === "R" ? "lawmaker__republican-sub" : "lawmaker__democrat-sub";
+
     return (
       <div className="box lawmaker__container">
         <table className="table is-striped is-narrow is-hoverable is-fullwidth">
-          <thead>
-            <tr>
-              <th colSpan="2" className={`lawmaker__th`}>
-                <div className="lawmaker__th-container">
-                  <div className={`is-size-6 ${partyColorMain}`}>
-                    {position} {first_name} {last_name} ({party})
-                  </div>
-                  <div
-                    className={`has-text-grey-dark has-text-weight-light lawmaker__district ${partyColorSub}`}
-                  >
-                    {chamber} District {district}
-                  </div>
-                </div>
-              </th>
-            </tr>
-          </thead>
+          <TableHead props={{position, district, first_name, last_name, party}} />
           <tbody className="is-size-7">
             {harrisburg_office_phone && (
               <TableRow
@@ -114,11 +95,41 @@ class Lawmaker extends React.Component {
   }
 }
 
-export default Lawmaker;
+const TableHead = ({props:{position, district, first_name, last_name, party}}) => {
+  const chamber = position === "Sen." ? "Senate" : "House";
+  const partyColorMain =
+    party === "R" ? "lawmaker__republican" : "lawmaker__democrat";
+  const partyColorSub =
+    party === "R" ? "lawmaker__republican-sub" : "lawmaker__democrat-sub";
+  return (
+    <thead>
+    <tr>
+      <th colSpan="2" className={`lawmaker__th`}>
+        <div className="lawmaker__th-container">
+          <div className={`is-size-6 ${partyColorMain}`}>
+            {position} {first_name} {last_name} ({party})
+          </div>
+          <div
+            className={`has-text-grey-dark has-text-weight-light lawmaker__district ${partyColorSub}`}
+          >
+            {chamber} District {district}
+          </div>
+        </div>
+      </th>
+    </tr>
+  </thead>
+  )
+}
 
-const TableRow = ({ name, value }) => (
-  <tr>
+
+const TableRow = ({ name, value }) => {
+const valueFormatted = typeof value === 'string' ? value.trim() : value
+return (  <tr>
     <td>{name}:</td>
-    <td>{value}</td>
-  </tr>
-);
+    <td>{valueFormatted}</td>
+  </tr>)
+};
+
+
+
+export default Lawmaker;
