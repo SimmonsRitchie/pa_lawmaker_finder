@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonCancel from './ButtonCancel'
+import ButtonSecondary from './ButtonSecondary'
 import ButtonSubmit from './ButtonSubmit'
 import SuggestBox from './SuggestBox'
 import { msg } from '../constants/displayMsg'
@@ -135,7 +135,7 @@ class InputAddress extends React.Component {
                   <ButtonSubmit text="Submit"/>
                 </div>
                 <div className="control">
-                  <ButtonCancel onClickEvt={this.props.handleBack} text="Cancel"/>
+                  <ButtonSecondary onClickEvt={this.props.handleBack} text="Cancel"/>
                 </div>
               </div>
           </div>
