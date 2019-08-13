@@ -1,4 +1,4 @@
-### PA LAWMAKER FINDER
+### Pa. Lawmaker Finder
 A React JS app to help Pennsylvanians find their state lawmakers. You can see a working example of this app [here](https://lawmaker-finder.herokuapp.com/).
 
 This app was inspired by a tool created by Erin Petenko for finding [New Jersey state lawmakers](https://github.com/epetenko/contact-nj-leg).
@@ -12,7 +12,7 @@ This app is designed to be embedded as an iframe. It uses [pym.js](https://githu
 'https://lawmaker-finder.herokuapp.com/', {});</script>
 ```
 
-### ABOUT THE DATA
+### About the data
 This app uses four json files:
 
 - TopoJSON 2017 boundaries for Pa. House districts
