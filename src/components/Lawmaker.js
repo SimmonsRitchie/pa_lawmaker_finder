@@ -57,7 +57,6 @@ class Lawmaker extends React.Component {
       email
     } = this.props;
 
-    const chamberDistrict = position === "Sen." ? "SD" : "HD";
     const chamber = position === "Sen." ? "Senate" : "House";
     const partyColorMain =
       party === "R" ? "lawmaker__republican" : "lawmaker__democrat";
