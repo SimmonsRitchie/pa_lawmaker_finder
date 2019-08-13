@@ -1,4 +1,4 @@
-// Here we're creating our own server
+// Here we set up our server to run the app
 
 // IMPORTS
 const path = require('path')
