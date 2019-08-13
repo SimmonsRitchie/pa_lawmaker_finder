@@ -17,6 +17,7 @@ class LawmakerBox extends React.Component {
     // Get senator
     const sen = sens.filter(sen => sen.district == this.props.senateDistrict)[0]
     const rep = reps.filter(rep => rep.district == this.props.houseDistrict)[0]
+
     return (
       <div className="lawmakerBox__container">
         <div className="lawmakerBox__container-inner">
@@ -35,7 +36,16 @@ class LawmakerBox extends React.Component {
         }
         {this.props.searchMethod === "geocode" && 
         <div className="buttons">
-        <ButtonPrimary onClickEvt={this.props.handleBack} text="Search again"/>
+        <ButtonPrimary onClickEvt={(e) => {
+          // for large screens we send user back to 'use address' page instead of app loading page.
+          // this is because we've disabled 'use current address' option for small screens so there's
+          // no need to send user back to a page where they only have one option.
+          if (window.innerWidth < 550) {
+            this.props.handleBack(e)
+          } else {
+            this.props.handleEnterAddress(e)
+          }}
+        } text="Search again"/>
         </div>
       }
       </div>
