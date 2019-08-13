@@ -11,7 +11,6 @@ import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
 
-
 class Main extends React.Component {
   state = {
     houseDistrict: "",
