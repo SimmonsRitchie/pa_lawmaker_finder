@@ -26,6 +26,10 @@ class Main extends React.Component {
     searchMethod: null,
   };
 
+  componentDidMount() {
+    pymSendHeight()
+  }
+
   componentDidUpdate() {
     // Because our app changes height based on displayed content, we 
     // update the iframe height after DOM elements have been updated.
