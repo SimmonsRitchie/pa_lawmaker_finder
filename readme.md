@@ -20,7 +20,7 @@ This app uses four json files:
 - 2019 Contact info for Pa. House lawmakers
 - 2019 Contact info Pa. Senate lawmakers
 
-The GeoJSON files were downloaded from the Pa. Open Data Portal [here](https://data.pa.gov/browse?q=district%20boundaries&sortBy=relevance)
+The GeoJSON files were downloaded from the Pa. Open Data Portal [here](https://data.pa.gov/browse?q=district%20boundaries&sortBy=relevance).
 
 The lawmaker contact information was provided by the Pa. Legislative Research Processing Center.
 
