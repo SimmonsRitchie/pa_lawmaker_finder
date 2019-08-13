@@ -27,10 +27,13 @@
 }
 
 .lawmaker__break-word-container {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
-  word-wrap: break-word;
+  // breaks up long words on small screens
+  @media (max-width: 400px) {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    word-wrap: break-word;
+  }
 }
 
 .lawmaker__republican {
