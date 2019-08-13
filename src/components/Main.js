@@ -58,7 +58,6 @@ class Main extends React.Component {
 
   // Updates action/error message displayed to user
   setMessage = (content="",{italic=false, icon=false}={}) => {
-    console.log("SetMessage icon=",icon)
     this.setState({ message: {
       content,
       italic,
