@@ -59,7 +59,6 @@ class InputAddress extends React.Component {
   };
 
   handleSubmit = e => {
-    console.log("submitting...")
     e.preventDefault();
     if (!this.canBeSubmitted()) {
       // We set all states to touched so that error/success styling appears on inputs

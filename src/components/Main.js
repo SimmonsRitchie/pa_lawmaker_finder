@@ -11,10 +11,6 @@ import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
 
-// TODO: Remove Font Awesome CDN and icon from button
-// TODO: Add Font Awesome 'X' when can't find geolocation
-// TODO: Fix bug with email stretching width of content box
-
 class Main extends React.Component {
   state = {
     houseDistrict: "",
