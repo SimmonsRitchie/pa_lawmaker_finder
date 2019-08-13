@@ -26,11 +26,11 @@ class InputAddress extends React.Component {
     },
   };
 
-  componentDidUpdate() {
-    // Because our app changes height based on displayed content, we 
-    // update the iframe height after DOM elements have been updated.
-    setTimeout(() => pymSendHeight(), 0)
-  }
+  // componentDidUpdate() {
+  //   // Because our app changes height based on displayed content, we 
+  //   // update the iframe height after DOM elements have been updated.
+  //   setTimeout(() => pymSendHeight(), 0)
+  // }
 
   handleBlur = (field) => {
     this.setState({

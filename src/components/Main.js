@@ -11,6 +11,8 @@ import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
 
+// TODO: Try adding 0s timeout to pym utils function
+
 class Main extends React.Component {
   state = {
     houseDistrict: "",
@@ -29,9 +31,10 @@ class Main extends React.Component {
   componentDidMount() {
     // This is intended to fix bug where app is clipped at bottom
     // on initial load.
-    setTimeout(() => {
-      pymSendHeight()
-    }, 500)
+    pymSendHeight()
+    // setTimeout(() => {
+    //   pymSendHeight()
+    // }, 500)
   }
 
   componentDidUpdate() {

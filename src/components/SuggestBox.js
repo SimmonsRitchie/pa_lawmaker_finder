@@ -2,9 +2,9 @@ import React from 'react';
 import {pymSendHeight} from '../utils/handlePym'
 
 class SuggestBox extends React.Component {
-  componentDidMount() {
-    pymSendHeight()
-  }
+  // componentDidMount() {
+  //   pymSendHeight()
+  // }
 
   render() {
   const {message, error=null} = this.props
