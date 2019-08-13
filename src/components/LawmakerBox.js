@@ -27,11 +27,17 @@ class LawmakerBox extends React.Component {
             message={msg.NOT_YOUR_LAWMAKER_TRY_ADDRESS}
           />}
         </div>
-        <div className="buttons">
           {this.props.searchMethod === "geolocate" && 
-          <ButtonPrimary onClickEvt={this.props.handleEnterAddress} text="Use address"/>}
+          <div className="buttons">
+          <ButtonPrimary onClickEvt={this.props.handleEnterAddress} text="Use address"/>
           <ButtonSecondary onClickEvt={this.props.handleBack} text="Back"/>
+          </div>
+        }
+        {this.props.searchMethod === "geocode" && 
+        <div className="buttons">
+        <ButtonPrimary onClickEvt={this.props.handleBack} text="Search again"/>
         </div>
+      }
       </div>
     )
   }
