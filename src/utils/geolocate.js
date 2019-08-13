@@ -21,7 +21,7 @@ const geolocate = (setDistricts, setMessage, setLoader, setButtonBox) => {
           setButtonBox(true)
         } else {
           setDistricts( houseDistrict, senDistrict)
-          setMessage(msg.SUCCESS_GEOLOCATION)
+          setMessage(msg.SUCCESS_GEOLOCATION, {icon:"success"})
         }
         return
       },
