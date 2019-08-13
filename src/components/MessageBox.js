@@ -9,16 +9,17 @@ const MessageBox = ({message: {content, italic=false, icon=false}}) => {
   
   Note: Font Awesome icon must be imported in app.js to work.
   */
-  console.log("icon",icon)
   const italicClass = italic ? "is-italic" : ""
   let iconColorClass = ""
+  let iconSymbol = ""
   if (icon === "exclamation") {
     iconColorClass = "messageBox__icon--danger"
+    iconSymbol = "exclamation-circle"
   }
   return (
     <div className="messageBox__container">
       <span className={`has-text-centered is-size-6 ${italicClass}`}>
-      {icon && <FontAwesomeIcon className={`messageBox__icon ${iconColorClass}`} icon={icon} />}
+      {icon && <FontAwesomeIcon className={`messageBox__icon ${iconColorClass}`} icon={iconSymbol} />}
       {content}</span>
     </div>
 )
