@@ -1,5 +1,5 @@
 .messageBox__container {
-  padding: 0 0 $s-size 0;
+  padding: 0 $xs-size $s-size $xs-size;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,5 +12,8 @@
 
 .messageBox__icon--danger {
   color: $danger;
+}
 
+.messageBox__icon--success {
+  color: $success;
 }

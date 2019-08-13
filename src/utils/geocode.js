@@ -35,7 +35,7 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
             setButtonBox(true)
           } else {
             setDistricts( houseDistrict, senDistrict)
-            setMessage(msg.SUCCESS_GEOCODE)
+            setMessage(msg.SUCCESS_GEOCODE, {icon:"success"})
           }
           return
       })
