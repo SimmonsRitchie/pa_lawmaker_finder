@@ -12,7 +12,7 @@ export const pymSendHeight = ({timeout=0, checkHeight=true}={}) => {
   // console.log("Scrolling to app...")
   // document.getElementById("app").scrollIntoView(false);
 
-  if (checkHeight && window.innerWidth < 500) {
+  if (checkHeight) {
     checkAppIsVisible({visibilityThreshold: 0.4})
   }
 }
@@ -34,7 +34,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
         });
         console.log("Scrolling to offset location...")
         setTimeout(() => {
-          el.scrollTop += 57
+          window.scrollBy(0,-57)
           console.log("Scrolled ot offset location")
           observer.disconnect()
           console.log("Intersection observer disconnected")
