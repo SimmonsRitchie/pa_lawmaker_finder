@@ -1,10 +1,5 @@
 // Handles pym sendHeight and other functionality if needed
 
-const scrollToTop = (changes, observer) => {
-  console.log("APP isn't visible - scroll to top")
-  document.getElementById("app").scrollIntoView(false);
-}
-
 export const pymSendHeight = ({timeout=0}={}) => {
   /* Set options in object. Params:
   timeout: int. Sets milliseconds before pymChild sends height to parent.
@@ -19,12 +14,17 @@ export const pymSendHeight = ({timeout=0}={}) => {
   if ('IntersectionObserver' in window) {
     // supported
     console.log("Intersection observer is supported")
-    const options = {
-      root: document.querySelector('#app'), // relative to document viewport 
-      rootMargin: '0px', // margin around root. Values are similar to css property. Unitless values not allowed
-      threshold: 0.1 // visible amount of item shown in relation to root
-    };
-    let observer = new IntersectionObserver(scrollToTop, options);
+    let observer = new IntersectionObserver((entries) => {
+      const elemVisib = entries[0].intersectionRatio
+      if (elemVisib >= 0 && elemVisib < 0.5) {
+        console.log("Less than a half of app is visible")
+        console.log("Scrolling to top...")
+        document.getElementById("app").scrollIntoView(false);
+        console.log("Scrolled to top")
+      } else if (elemVisib >= 0.3) {
+        console.log("More than half of app is visible")
+      }
+    });
     observer.observe(document.querySelector('#app'))
 } else {
     console.log("Intersection is not supported")
