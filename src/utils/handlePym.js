@@ -13,7 +13,7 @@ export const pymSendHeight = ({timeout=0, checkHeight=true}={}) => {
   // document.getElementById("app").scrollIntoView(false);
 
   if (checkHeight) {
-    checkAppIsVisible({visibilityThreshold: 0.4})
+    checkAppIsVisible({visibilityThreshold: 0.5})
   }
 }
 
@@ -38,7 +38,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
           console.log("Scrolled to offset location")
           observer.disconnect()
           console.log("Intersection observer disconnected")
-        }, 1000)
+        }, 3000)
       } else {
         console.log(`More than ${visibilityThreshold} of app is visible`)
         observer.disconnect()
