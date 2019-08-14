@@ -31,10 +31,7 @@ class Main extends React.Component {
   componentDidMount() {
     // This is intended to fix bug where app is clipped at bottom
     // on initial load.
-    pymSendHeight()
-    // setTimeout(() => {
-    //   pymSendHeight()
-    // }, 500)
+    pymSendHeight({timeout: 500})
   }
 
   componentDidUpdate() {
