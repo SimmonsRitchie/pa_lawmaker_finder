@@ -25,7 +25,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
       const elemVisib = entries[0].intersectionRatio
       if (elemVisib < visibilityThreshold) {
         console.log(`Less than ${visibilityThreshold} of app is visible`)
-        const el = document.getElementById("app")
+        const el = document.getElementById("app").scrollTop += 57
         console.log("Scrolling to top of div...")
         el.scrollIntoView({
           behavior: "auto",
