@@ -13,7 +13,7 @@ export const pymSendHeight = ({timeout=0, checkHeight=true}={}) => {
   // document.getElementById("app").scrollIntoView(false);
 
   if (checkHeight && window.innerWidth < 500) {
-    checkAppIsVisible({visibilityThreshold: 0.25})
+    checkAppIsVisible({visibilityThreshold: 0.4})
   }
 }
 
@@ -25,9 +25,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
       const elemVisib = entries[0].intersectionRatio
       if (elemVisib < visibilityThreshold) {
         console.log(`Less than ${visibilityThreshold} of app is visible`)
-        console.log("Scrolling to top...")
         scroll()
-        console.log("Scrolled to top")
       } else {
         console.log(`More than ${visibilityThreshold} of app is visible`)
       }
@@ -43,11 +41,12 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
 
 const scroll = () => {
   const el = document.getElementById("app")
+  console.log("Scrolling to top of div...")
   el.scrollIntoView({
     behavior: "auto",
     block: "start",
     inline: "nearest"
   });
-  el.scrollTop -= 57; // offset for fixed nav on Spotlight website
-
+  console.log("Scrolling to offset location...")
+  setTimeout(() => el.scrollTop -= 57, 500)
 }
