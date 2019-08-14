@@ -2,32 +2,34 @@
 
 export const pymSendHeight = ({timeout=0, checkHeight=true}={}) => {
   /* Set options in object. Params:
-  timeout: int. Sets milliseconds before pymChild sends height to parent.
+  --timeout: int. Sets milliseconds before pymChild sends height to parent.
   defaults to 0. 
+  --checkHeight: bool. If true, checks whether div is in viewport for small screens. 
+  If not, scrolls to top of div. Defaults to true.
   */
 
   setTimeout(() => pymChild.sendHeight(), timeout)
   // console.log("Scrolling to app...")
   // document.getElementById("app").scrollIntoView(false);
 
-  if (checkHeight) {
-    checkAppIsVisible()
+  if (checkHeight && window.innerWidth < 500) {
+    checkAppIsVisible({visibilityThreshold: 0.25})
   }
 }
 
-const checkAppIsVisible = () => {
+const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
   // INTERSECTION OBSERVER
   if ('IntersectionObserver' in window) {
     // supported
     let observer = new IntersectionObserver((entries) => {
       const elemVisib = entries[0].intersectionRatio
-      if (elemVisib < 0.3) {
-        console.log("Less than 0.3 of app is visible")
+      if (elemVisib < visibilityThreshold) {
+        console.log(`Less than ${visibilityThreshold} of app is visible`)
         console.log("Scrolling to top...")
-        document.getElementById("app").scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        scroll()
         console.log("Scrolled to top")
-      } else if (elemVisib >= 0.7) {
-        console.log("More than 0.6 of app is visible")
+      } else {
+        console.log(`More than ${visibilityThreshold} of app is visible`)
       }
       observer.disconnect()
       console.log("Intersection observer disconnected")
@@ -39,3 +41,13 @@ const checkAppIsVisible = () => {
   }
 }
 
+const scroll = () => {
+  const el = document.getElementById("app")
+  el.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+    inline: "nearest"
+  });
+  el.scrollTop += 57; // offset for fixed nav on Spotlight website
+
+}
