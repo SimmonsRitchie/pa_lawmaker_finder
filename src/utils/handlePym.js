@@ -27,19 +27,18 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
         console.log(`Less than ${visibilityThreshold} of app is visible`)
         const el = document.getElementById("app")
         console.log("Scrolling to top of div...")
-        scrollElementIntoView(el, 'auto')
-        // el.scrollIntoView({
-        //   behavior: "auto",
-        //   block: "start",
-        //   inline: "nearest"
-        // });
-        // console.log("Scrolling to offset location...")
-        // setTimeout(() => {
-        //   window.scrollBy(0,-57)
-        //   console.log("Scrolled to offset location")
-        //   observer.disconnect()
-        //   console.log("Intersection observer disconnected")
-        // }, 1000)
+        el.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+          inline: "nearest"
+        });
+        console.log("Scrolling to offset location...")
+        setTimeout(() => {
+          window.scrollBy(0,-57)
+          console.log("Scrolled to offset location")
+          observer.disconnect()
+          console.log("Intersection observer disconnected")
+        }, 1000)
       } else {
         console.log(`More than ${visibilityThreshold} of app is visible`)
         observer.disconnect()
@@ -54,6 +53,8 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
 }
 
 
+// FROM SO ANSWER: https://stackoverflow.com/questions/45098593/mobile-safari-scrollintoview-doesnt-work
+// this doesn't appear to work
 const scrollElementIntoView = (element: HTMLElement, behavior?: 'smooth' | 'instant' | 'auto') => {
 
   let scrollTop = window.pageYOffset || element.scrollTop
