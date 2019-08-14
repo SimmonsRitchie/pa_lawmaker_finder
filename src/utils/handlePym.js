@@ -25,7 +25,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
       const elemVisib = entries[0].intersectionRatio
       if (elemVisib < visibilityThreshold) {
         console.log(`Less than ${visibilityThreshold} of app is visible`)
-        const el = document.getElementById("app").scrollTop += 57
+        const el = document.getElementById("app")
         console.log("Scrolling to top of div...")
         el.scrollIntoView({
           behavior: "auto",
@@ -35,7 +35,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
         console.log("Scrolling to offset location...")
         setTimeout(() => {
           window.scrollBy(0,-57)
-          console.log("Scrolled ot offset location")
+          console.log("Scrolled to offset location")
           observer.disconnect()
           console.log("Intersection observer disconnected")
         }, 1000)
