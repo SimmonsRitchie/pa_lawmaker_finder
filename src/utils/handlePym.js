@@ -34,13 +34,15 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
         });
         console.log("Scrolling to offset location...")
         setTimeout(() => {
-          el.scrollTop -= 57
+          el.scrollTop += 57
+          console.log("Scrolled ot offset location")
           observer.disconnect()
-        }, 500)
+          console.log("Intersection observer disconnected")
+        }, 1000)
       } else {
         console.log(`More than ${visibilityThreshold} of app is visible`)
         observer.disconnect()
-
+        console.log("Intersection observer disconnected")
       }
     });
     console.log("Intersection observer connected")
