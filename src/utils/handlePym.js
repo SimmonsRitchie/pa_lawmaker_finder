@@ -24,7 +24,7 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
     let observer = new IntersectionObserver((entries) => {
       const elemVisib = entries[0].intersectionRatio
       if (elemVisib < visibilityThreshold) {
-        console.log(`Less than ${visibilityThreshold} of app is visible`)
+        console.log(`Less than ${visibilityThreshold} of app is visible so doing SOMETHING`)
         const el = document.getElementById("app")
         console.log("Scrolling to top of div...")
         el.scrollIntoView({
@@ -34,13 +34,13 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
         });
         console.log("Scrolling to offset location...")
         setTimeout(() => {
-          window.scrollBy(0,-57)
-          console.log("Scrolled to offset location")
+          window.parent.scrollBy(0,-57) // parent window of iframe
+          console.log("BINGO - Scrolled to offset location")
           observer.disconnect()
           console.log("Intersection observer disconnected")
         }, 3000)
       } else {
-        console.log(`More than ${visibilityThreshold} of app is visible`)
+        console.log(`More than ${visibilityThreshold} of app is visible so doing nothing`)
         observer.disconnect()
         console.log("Intersection observer disconnected")
       }
