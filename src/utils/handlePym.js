@@ -25,28 +25,27 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
       const elemVisib = entries[0].intersectionRatio
       if (elemVisib < visibilityThreshold) {
         console.log(`Less than ${visibilityThreshold} of app is visible`)
-        scroll()
+        const el = document.getElementById("app")
+        console.log("Scrolling to top of div...")
+        el.scrollIntoView({
+          behavior: "auto",
+          block: "start",
+          inline: "nearest"
+        });
+        console.log("Scrolling to offset location...")
+        setTimeout(() => {
+          el.scrollTop -= 57
+          observer.disconnect()
+        }, 500)
       } else {
         console.log(`More than ${visibilityThreshold} of app is visible`)
+        observer.disconnect()
+
       }
-      observer.disconnect()
-      console.log("Intersection observer disconnected")
     });
     console.log("Intersection observer connected")
     observer.observe(document.querySelector('#app'))
   } else {
       console.log("Intersection is not supported")
   }
-}
-
-const scroll = () => {
-  const el = document.getElementById("app")
-  console.log("Scrolling to top of div...")
-  el.scrollIntoView({
-    behavior: "auto",
-    block: "start",
-    inline: "nearest"
-  });
-  console.log("Scrolling to offset location...")
-  setTimeout(() => el.scrollTop -= 57, 500)
 }
