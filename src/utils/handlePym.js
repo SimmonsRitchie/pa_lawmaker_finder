@@ -42,12 +42,12 @@ const checkAppIsVisible = ({visibilityThreshold=1}={}) => {
 }
 
 const scroll = () => {
-  const el = document.getElementById("app")
+  const el = document.getElementById("anchor__child")
   el.scrollIntoView({
     behavior: "smooth",
     block: "start",
     inline: "nearest"
   });
-  el.scrollTop += 57; // offset for fixed nav on Spotlight website
+  // el.scrollTop += 57; // offset for fixed nav on Spotlight website
 
 }
