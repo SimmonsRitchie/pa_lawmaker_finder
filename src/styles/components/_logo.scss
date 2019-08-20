@@ -1,0 +1,14 @@
+.logo {
+  display: block;
+  max-width:37px;
+  max-height:37px;
+  width: auto;
+  height: auto;
+  margin-left: 0.5em;
+  opacity: 0.5;
+
+  // hide logo on small screens because it looks awkward
+  // @media (max-width: 460px) {
+  //   display: none;
+  // }
+}

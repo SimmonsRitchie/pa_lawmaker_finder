@@ -14,16 +14,4 @@
   max-width: 500px;
 }
 
-.header__logo {
-  display: block;
-  max-width:37px;
-  max-height:37px;
-  width: auto;
-  height: auto;
-  margin-left: 0.5em;
 
-  // hide logo on small screens because it looks awkward
-  @media (max-width: 460px) {
-    display: none;
-  }
-}
