@@ -1,11 +1,15 @@
+.logo__container {
+  margin: 0 $xs-size 0 $xs-size;
+}
+
 .logo {
   display: block;
-  max-width:37px;
-  max-height:37px;
+  max-width: 37px;
+  max-height: 37px;
   width: auto;
   height: auto;
-  margin-left: 0.5em;
-  opacity: 0.5;
+  opacity: 0.3;
+  // width: 100%;
 
   // hide logo on small screens because it looks awkward
   // @media (max-width: 460px) {

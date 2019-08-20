@@ -2,7 +2,7 @@ import React from 'react';
 const Footer = () => (
     <div>
         <div className="footer__container">
-          <div className="is-size-7">
+          <div className="is-size-7 has-text-grey">
             <p className={""}>
             <b>Source: </b>Pa. Legislative Data Processing Center.
             </p>
@@ -10,7 +10,9 @@ const Footer = () => (
               Created by Daniel Simmons-Ritchie, Spotlight PA
             </p>
           </div>
-          <img className="logo" src="images/logo.png" />
+          <div className="logo__container">
+            <img className="logo" src="images/logo.png" />
+          </div>
         </div>
     </div>
 )
