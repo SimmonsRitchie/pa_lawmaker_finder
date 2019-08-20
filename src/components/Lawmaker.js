@@ -65,20 +65,20 @@ class Lawmaker extends React.Component {
           <tbody className="is-size-7">
             {harrisburg_office_phone && (
               <TableRow
-                name="Capitol Ph"
+                name="Capitol (p)"
                 value={phoneLink(harrisburg_office_phone, party)}
               />
             )}
             {district_office_phone && (
               <TableRow
-                name="District Ph"
+                name="District (p)"
                 value={phoneLink(district_office_phone, party)}
               />
             )}
             {email && <TableRow name="Email" value={mailLink(email, party)} />}
             {harrisburg_office_fax && (
               <TableRow
-                name="Harrisburg Office Fax"
+                name="Capitol (f)"
                 value={harrisburg_office_fax}
               />
             )}
