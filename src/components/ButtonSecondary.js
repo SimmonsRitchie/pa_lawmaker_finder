@@ -5,7 +5,7 @@ const ButtonSecondary = ({ text, onClickEvt }) => {
   return (
   <button
     type="button"
-    className="button is-white is-fullwidith"
+    className="button is-fullwidith"
     onClick={onClickEvt}
   >
     <span>{text}</span>
