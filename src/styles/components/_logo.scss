@@ -1,12 +1,8 @@
 .logo__container {
-  margin: 0 $xs-size 0 $xs-size;
+  margin-left: $xs-size;
   max-width: 37px;
   max-height: 37px;
   opacity: 0.3;
-
-  @media (max-width: 475px) {
-    display: none;
-  }
 }
 
 .logo {
