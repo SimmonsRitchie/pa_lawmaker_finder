@@ -12,6 +12,10 @@ This app is designed to be embedded as an iframe. It uses [pym.js](https://githu
 'https://lawmaker-finder.herokuapp.com/', {});</script>
 ```
 
+### Geocoding
+
+When provided an address, this app uses Nomatim for geocoding. Unfortunately, Nomatim can be fickle with some addresses and the app may return a 'location not found' message.
+
 ### About the data
 This app uses four json files:
 
