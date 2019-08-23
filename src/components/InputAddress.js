@@ -87,7 +87,7 @@ class InputAddress extends React.Component {
   }
 
   render() {
-    const { street: street, city, postalcode } = this.state.location;
+    const { street, city, postalcode } = this.state.location;
     const errors = validate(this.state.location);
     return (
       <div className="form__container">
