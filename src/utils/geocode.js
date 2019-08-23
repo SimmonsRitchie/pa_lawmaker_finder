@@ -15,13 +15,15 @@ import { checkPointWithinGeography } from './findWithin'
 }
 */
 
-const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) => {
+const getCoords = (location, setDistricts, setMessage, setLoader, setButtonBox) => {
+  const {street, city, postalcode, state} = location
+  const inputLocation = `${street}, ${city} ${postalcode} ${state}`
   setLoader(true)
   setMessage(msg.SEARCHING_FOR_LAWMAKERS, {italic: true})
   const geocoder = new Nominatim({
     secure: true, // enables ssl
   })
-  geocoder.search( address )
+  geocoder.search( location )
       .then((response) => {
         setLoader(false)
         // Geocoder returns an array of the best matches, we take the first.
@@ -35,13 +37,13 @@ const getCoords = (address, setDistricts, setMessage, setLoader, setButtonBox) =
             setButtonBox(true)
           } else {
             setDistricts( houseDistrict, senDistrict)
-            setMessage(msg.SUCCESS_GEOCODE, {icon:"success"})
+            setMessage(`Based on your address (${inputLocation}), your lawmakers are:`, {icon:"success"})
           }
           return
       })
       .catch((error) => {
           setLoader(false)
-          setMessage(msg.LOCATION_NOT_FOUND, {icon:"exclamation"})
+          setMessage(`Sorry, we couldn't locate <b>${inputLocation}</b>`, {icon:"exclamation"})
           setButtonBox(true)
           return
       })
