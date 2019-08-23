@@ -1,9 +1,15 @@
-.messageBox__container {
+.messageBox__container-outer {
   padding: 0 $xs-size $s-size $xs-size;
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
+.messageBox__container-inner {
+  max-width: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .messageBox__icon {
