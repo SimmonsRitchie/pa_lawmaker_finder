@@ -11,8 +11,6 @@ import Loader from "./Loader";
 import {msg} from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
 
-// TODO: Try adding 0s timeout to pym utils function
-
 class Main extends React.Component {
   state = {
     houseDistrict: "",
@@ -61,11 +59,12 @@ class Main extends React.Component {
   };
 
   // Updates action/error message displayed to user
-  setMessage = (content="",{italic=false, icon=false}={}) => {
+  setMessage = (content="",{italic, icon, inputLocation}={}) => {
     this.setState({ message: {
       content,
       italic,
-      icon
+      icon,
+      inputLocation
     } });
   };
 
