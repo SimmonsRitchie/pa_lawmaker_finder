@@ -1,12 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const MessageBox = ({ message: { content, italic = false, icon = false } }) => {
+
+const MessageBox = ({ message: { content, italic, icon, inputLocation } }) => {
   /* Params:
   content: Str. Text message to display.
-  italic: Bool. Text will be displayed in italics if true. Default false.
-  icon: Str. Font awesome icon to display. eg. 'exclamation'. Default false.
-  
+  italic: Bool. Text will be displayed in italics if true. Default undefined.
+  icon: Str. Font awesome icon to display. eg. 'exclamation'. Default undefined.
+  inputLocation: Str. Displays input location if provided. Default undefined.
+
   Note: Font Awesome icon must be imported in app.js to work.
   */
   const italicClass = italic ? "is-italic" : "";
@@ -23,9 +25,11 @@ const MessageBox = ({ message: { content, italic = false, icon = false } }) => {
       break;
   }
 
+
   return (
     <div className="messageBox__container-outer">
       <div className="messageBox__container-inner">
+        {inputLocation && <div className={'has-text-centered subtitle is-6'}>Address: {inputLocation}</div>}
         <span className={`has-text-centered subtitle is-6 ${italicClass}`}>
           {icon && (
             <FontAwesomeIcon
@@ -33,7 +37,7 @@ const MessageBox = ({ message: { content, italic = false, icon = false } }) => {
               icon={iconSymbol}
             />
           )}
-          <span dangerouslySetInnerHTML={{ __html: content }} />
+          {content}
         </span>
       </div>
     </div>
