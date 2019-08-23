@@ -5,22 +5,24 @@ import SuggestBox from './SuggestBox'
 import { msg } from '../constants/displayMsg'
 import {pymSendHeight} from '../utils/handlePym'
 
-function validate(address, city) {
+function validate({street, city}) {
   // required fields - can't be empty
   return {
-    address: address.length === 0,
+    street: street.length === 0,
     city: city.length === 0,
   };
 }
 
 class InputAddress extends React.Component {
   state = {
-    address: "",
-    city: "",
-    postalcode: "",
+    location: {
+      street: "",
+      city: "",
+      postalcode: "",
+    },
     errorMsg: "",
     touched: {
-      address: false,
+      street: false,
       city: false,
       postalcode: false,
     },
@@ -53,8 +55,8 @@ class InputAddress extends React.Component {
         return
       }
     }
-    this.setState({
-      [name]: value
+    this.setState( {
+      location: { ...this.state.location, [name]: value}
     });
   };
 
@@ -72,21 +74,21 @@ class InputAddress extends React.Component {
       this.setState({errorMsg: msg.ENTER_REQUIRED_FIELDS})
       return;
     }
-    // We only expect addresses in Pennsylvania so we provide these address params
+    // We only expect streetes in Pennsylvania so we provide these street params
     const defaultVals = { state: "PA", country: "USA" };
-    this.props.handleGeocode({ ...this.state, ...defaultVals });
+    this.props.handleGeocode({ ...this.state.location, ...defaultVals });
   };
 
   canBeSubmitted = () => {
-    const errors = validate(this.state.address, this.state.city);
+    const errors = validate(this.state.location);
     // checks if any fields in error obj are set to 'true'
     const isDisabled = Object.keys(errors).some(x => errors[x]);
     return !isDisabled;
   }
 
   render() {
-    const { address, city, county, postalcode } = this.state;
-    const errors = validate(this.state.address, this.state.city, this.state.postalcode);
+    const { street: street, city, postalcode } = this.state.location;
+    const errors = validate(this.state.location);
     return (
       <div className="form__container">
         <div className="form__container-inner">
@@ -96,16 +98,16 @@ class InputAddress extends React.Component {
                 label="Address"
                 placeholder="Your address"
                 inputType="text"
-                inputName="address"
-                inputValue={address}
+                inputName="street"
+                inputValue={street}
                 onChange={this.onChange}
                 errors={errors}
                 touched={this.state.touched}
                 handleBlur={this.handleBlur}
               />
               <FormField
-                label="City"
-                placeholder="Your city"
+                label="Your town/city"
+                placeholder="Your town/city"
                 inputType="text"
                 inputName="city"
                 inputValue={city}
