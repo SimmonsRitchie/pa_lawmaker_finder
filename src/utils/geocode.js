@@ -1,5 +1,5 @@
 const API_KEY = process.env.GOOGLE_API_KEY;
-
+console.log(API_KEY)
 var googleMapsClient = require("@google/maps").createClient({
   key: API_KEY,
   Promise: Promise // 'Promise' is the native constructor.
@@ -49,6 +49,7 @@ const getCoords = (
       return;
     })
     .catch(error => {
+      console.log(error)
       setLoader(false);
       setMessage(msg.LOCATION_NOT_FOUND, { icon: "exclamation" });
       setButtonBox(true);
