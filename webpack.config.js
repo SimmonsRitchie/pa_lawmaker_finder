@@ -1,7 +1,15 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const webpack = require('webpack')
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
+
+if (process.env.NODE_ENV === 'test') {
+    require('dotenv').config({ path: '.env.development' });
+} else if (process.env.NODE_ENV === 'development') {
+    require('dotenv').config({ path: '.env.development' });
+}
+
 
 module.exports = (env) => {
     const isProduction = env === 'production';
@@ -39,7 +47,10 @@ module.exports = (env) => {
             }]
         },
         plugins: [
-            CSSExtract
+            CSSExtract,
+            new webpack.DefinePlugin({
+              'process.env.GOOGLE_API_KEY': JSON.stringify(process.env.GOOGLE_API_KEY),
+          })
         ],
         devtool: isProduction ? 'source-map' : 'inline-source-map',
         devServer: {
