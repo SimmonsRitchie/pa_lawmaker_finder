@@ -25,12 +25,11 @@ app.get('*', (req, res) => {
 })
 
 // LISTENING
-// Below, we're giving two arguments
+// Below, we're giving two args:
 // 1) Giving express a port number. 3000 is a good one for local testing
 // for dev purposes and is available on all OS. However this won't work
 // on Heroku. Heroku will provide a dynamic value that changes each time
-// it's deployed.
-// You can view in browser at 'localhost:3000'
+// it's deployed. You can view in browser at 'localhost:3000'
 // 2) a callback function that spits out a message.
 app.listen(port, () => {
     console.log("Server is up!")
