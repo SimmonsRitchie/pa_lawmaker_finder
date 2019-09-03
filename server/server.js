@@ -2,7 +2,7 @@
 
 // IMPORTS
 const path = require('path')
-const express = require('express'); // Require is how we import in node.js
+const express = require('express');
 
 // GET PORT FOR HEROKU
 // This uses Heroku's dynamic port if deploying to Heroku,
