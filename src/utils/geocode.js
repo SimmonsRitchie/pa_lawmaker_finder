@@ -4,7 +4,10 @@ import { checkPointWithinGeography } from "./findWithin";
 
 const API_KEY = process.env.GOOGLE_API_KEY;
 Geocode.setApiKey(API_KEY)
-Geocode.enableDebug();
+if (process.env.NODE_ENV === 'development') {
+  console.log("Dev mode: Geocode logging enabled")
+  Geocode.enableDebug();
+}
 
 const getCoords = (
   location,
