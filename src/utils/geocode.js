@@ -1,11 +1,10 @@
-const API_KEY = process.env.GOOGLE_API_KEY;
-
-var googleMapsClient = require("@google/maps").createClient({
-  key: API_KEY,
-  Promise: Promise // 'Promise' is the native constructor.
-});
+import Geocode from "react-geocode";
 import { msg } from "../constants/displayMsg";
 import { checkPointWithinGeography } from "./findWithin";
+
+const API_KEY = process.env.GOOGLE_API_KEY;
+Geocode.setApiKey(API_KEY)
+Geocode.enableDebug();
 
 const getCoords = (
   location,
@@ -18,13 +17,11 @@ const getCoords = (
   const inputLocation = `${street}, ${city} ${postalcode} ${state}`; // may use in future
   setLoader(true);
   setMessage(msg.SEARCHING_FOR_LAWMAKERS, { italic: true });
-  googleMapsClient
-    .geocode({ address: inputLocation })
-    .asPromise()
+  Geocode.fromAddress(inputLocation)
     .then(response => {
       setLoader(false);
       // Geocoder returns an array of the best matches, we take the first.
-      const bestMatch = response.json.results[0].geometry.location;
+      const bestMatch = response.results[0].geometry.location;
       const inputLat = bestMatch.lat;
       const inputLng = bestMatch.lng;
       const houseDistrict = checkPointWithinGeography({
