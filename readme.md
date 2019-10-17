@@ -14,7 +14,7 @@ This app is designed to be embedded as an iframe. It uses [pym.js](https://githu
 
 ### API Key
 
-This app uses Google's geocoding API for geocoding. To adapt this app, you'll need to get your own google API key and provide it as an environment variable.
+This app uses Google's geocoding API for geocoding. To adapt this app, you'll need to get your own google API.
 
 You can find instructions [here](https://www.npmjs.com/package/@google/maps) on acquiring a Google API key.
 
