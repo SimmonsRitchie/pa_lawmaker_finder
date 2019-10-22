@@ -1,12 +1,14 @@
 .container__main {
   padding: $s-size $xs-size $s-size $xs-size;
   max-width: 780px;
-  // max-width: 650px;
   margin: 0 auto;
   border-radius: 5px;
   background-color: white;
   border: black solid 1px;
-  // background-color: $beige-lighter;
+
+  @media (min-width: $upper-breakpoint) {
+    border: none;
+  }
 }
 
 
