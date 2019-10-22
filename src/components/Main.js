@@ -16,7 +16,7 @@ class Main extends React.Component {
     houseDistrict: "",
     senateDistrict: "",
     message: {
-      content: "Find out who represents you in the Pa. Legislature:",
+      content: msg.GREETING,
       italic: false,
       icon: false
     },
@@ -79,7 +79,7 @@ class Main extends React.Component {
       houseDistrict: "",
       senateDistrict: "",
       message: {
-        content: "Find out who represents you in the Pa. Legislature:",
+        content: msg.GREETING,
         italic: false,
         icon: false
       },
