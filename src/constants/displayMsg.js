@@ -1,5 +1,5 @@
 export const msg = {
-  "GREETING": "Want to share this story with your lawmakers?\n Find out who represents you:",
+  "GREETING": "Find out who represents you in the Pa. Legislature:",
   "SEARCHING_FOR_LAWMAKERS": "Searching for your lawmakers...",
   "SEARCHING_FOR_LAWMAKERS_GEOLOCATION": "Searching for your lawmakers based on your current location...",
   "SUCCESS_GEOLOCATION": "Based on your current location, your lawmakers are:",
