@@ -12,11 +12,17 @@ This app is designed to be embedded as an iframe. It uses [pym.js](https://githu
 'https://lawmaker-finder.herokuapp.com/', {});</script>
 ```
 
-### API Key
+### Set up
 
 This app uses Google's geocoding API for geocoding. To adapt this app, you'll need to get your own google API.
 
 You can find instructions [here](https://www.npmjs.com/package/@google/maps) on acquiring a Google API key.
+
+### Run
+
+To run this app:
+
+```npm run dev-server```
 
 ### About the data
 This app uses four json files:
