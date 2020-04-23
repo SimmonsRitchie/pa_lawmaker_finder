@@ -1,18 +1,22 @@
 import React from 'react';
-import {ClipLoader} from 'halogenium'
+import BeatLoader from "react-spinners/ClipLoader";
 
 const Loader = ({display = true}) => {
-  const spotlightBlue = "#009edb"
   const defaultGreen = "#26A65B"
   return (
     <div>
       {display &&
         <div className="loader__container">
-        <ClipLoader color={defaultGreen} size="100px" margin="4px"/>
-        </div>
+        <BeatLoader
+          size={30}
+          color={defaultGreen}
+          loading={true}
+        />
+      </div>
       }
     </div>
-  )}
+  )
+}
 
 
 export default Loader
