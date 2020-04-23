@@ -16,11 +16,21 @@ This app is designed to be embedded as an iframe. It uses [pym.js](https://githu
 
 This app uses Google's geocoding API for geocoding. To adapt this app, you'll need to get your own google API.
 
-You can find instructions [here](https://www.npmjs.com/package/@google/maps) on acquiring a Google API key.
+For development, create a new file: .env.development
 
-### Run
+And add your google API key like so:
 
-To run this app:
+```GOOGLE_API_KEY=XXXXXXXXXXXXX```
+
+You can find instructions [here](https://www.npmjs.com/package/@google/maps) about how to acquire a Google API key.
+
+### Install and run
+
+To install this app:
+
+```npm install```
+
+And run:
 
 ```npm run dev-server```
 
